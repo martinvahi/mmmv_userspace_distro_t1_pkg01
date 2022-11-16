@@ -1,0 +1,23 @@
+
+Building of the 
+
+    ./rhash-1.4.2-src.tar.gz  # the upstream original, downloaded on 2021_12_23 from 
+                              # https://sourceforge.net/projects/rhash/
+                              # http://rhash.sourceforge.net/
+
+has been tested on ("uname -a")
+
+Linux hoidla01 4.19.0-10-amd64 #1 SMP Debian 4.19.132-1 (2020-07-24) x86_64 GNU/Linux
+
+with the following build commands:
+
+./configure --prefix=/home/mmmv/applications/rhash/v_1_4_2 --enable-gettext --enable-static --extra-cflags=" -march=native -ftree-vectorize -O3 "
+make
+make test
+make install
+
+The "--enable-static" is used to overcome the situation, where
+the librhash from the operating system package collection was
+loaded in stead of the newly built one. Part of the rhash runtime
+error message: "incompatible librhash version is loaded".
+

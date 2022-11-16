@@ -1,0 +1,8 @@
+
+Ruby version 2.4.0 had a change that the use of Fixnum and Bignum 
+triggers a stderr printed warning message that says that 
+they have been deprecated in favour of their parent class, Integer.
+Ruby version 2.7.2 moves the warning message from stderr back to stdout.
+Therefore, Ruby versions 2.4.x, 2.5.x and 2.6.x are the versons
+for testing the code that tries to detect errors by monitoring stderr output.
+

@@ -1,0 +1,275 @@
+===========================================================================
+=====================  mmmv_userspace_distro_t1  ==========================
+===========================================================================
+
+The mmmv_userspace_distro_t1 is a collection of manually installed
+components and scripts. It's main purpose is to facilitate the 
+configuration of POSIX compliant operating system instances, for example 
+VirtualBox virtual appliances and Raspberry Pi memory card images.  
+
+---------------------------------------------------------------------------
+                              Table of Contents
+---------------------------------------------------------------------------
+The "Section_..." at the start of the section name is meant to be 
+used for navigating this file with the Vim word search function.
+
+Section_01: References to Linux Tutorials
+Section_02: Basic Setup
+Section_03: The Setup of Optional Components: Cache Server
+Section_04: The Setup of Optional Components: User Specific Network Interface
+Section_05: Some Networking Related Commands and Ideas
+Section_06: The BSD License
+Section_07: A BSD License Related note
+
+---------------------------------------------------------------------------
+                Section_01: References to Linux Tutorials
+---------------------------------------------------------------------------
+
+The rest of the chapters in this file assume basic knowledge of 
+Bash console and Unix like systems like Linux and BSD.
+A list of some beginner level Linux tutorials:
+
+    https://bash.cyberciti.biz/guide/Main_Page
+    https://www.shell-tips.com/bash/
+    optionally present local copy:
+        /home/mmmv/mmmv_userspace_distro_t1/attic/documentation/third_party_documentation/Linux_and_Bash/2021_09_18_shell-tips_com_bash_comments_t1.pdf
+
+---------------------------------------------------------------------------
+                           Section_02: Basic Setup
+---------------------------------------------------------------------------
+
+Operating system users that use the mmmv_userspace_distro_t1 
+are expected to include ("source") the 
+
+    ./mmmv/etc/common_bashrc/common_bashrc_main.bash
+
+to their 
+
+    ~/.bashrc
+
+by adding a modified/updated version of 
+
+    #------machine--instance--specific--section--start-----
+
+    export MMMV_USERSPACE_DISTRO_T1_HOME="<a path to the folder where this COMMENTS.txt resides that You are cuurently reading>
+    # Usually the 
+    #     MMMV_USERSPACE_DISTRO_T1_HOME="/home/mmmv/mmmv_userspace_distro_t1"
+    source "$MMMV_USERSPACE_DISTRO_T1_HOME/mmmv/etc/common_bashrc/common_bashrc_main.bash"
+
+    #------machine--instance--specific--section--end-------
+
+
+to their 
+
+    ~/.bashrc
+
+The inclusion ("source") line can be added to the end of the ~/.bashrc
+automatically by executing 
+
+    ./mmmv/bin/mmmv_admin_init_bashrc_mmmv_t1.bash
+
+which copies the 
+
+    ./mmmv/lib/templates/_bashrc_suffix_template_t1.bash
+
+to the end of the ~/.bashrc . Operating system userspace 
+distribution creators are expected to update the 
+
+    ./mmmv/etc/common_bashrc/subparts/mmmv_userspace_distro_t1_specific/appliance_instance_specific_Bash_code/appliance_instance_specific_main.bash"
+
+---------------------------------------------------------------------------
+        Section_03: The Setup of Optional Components: Cache Server
+---------------------------------------------------------------------------
+
+The 
+
+    ./mmmv/etc/common_bashrc/common_bashrc_main.bash
+
+conditionally creates aliases, which use the Squid cache server
+
+    http://www.squid-cache.org/
+
+or, depending on how the 
+
+    ./mmmv/etc/common_bashrc/common_bashrc_main.bash
+
+has been edited, some other cache server. The Squid cache server might be
+available from operating system standard package collection, but 
+to avoid running it as root, it is recommended to switch off the
+squid daemon 
+
+    # On Debian based systems as root:
+    service squid stop 
+    ps -A  | grep squ   # to verify
+
+and run the squid server or some other cache server 
+as some dedicated, ordinary, user. A copy of the Squid server 
+MIGHT be available from  
+
+    ./attic/optional_setup_components/Squid_web_proxy
+
+---------------------------------------------------------------------------
+  Section_04: The Setup of Optional Components: User Specific Network Interface
+---------------------------------------------------------------------------
+
+As the localhost and public network interfaces are 
+accessible to all operating system users, the various 
+web based administration interfaces must be made accessible
+only to the operating system user that started the program
+that has the web based administration interface. 
+
+One way to do that is to create 
+a localhost analogue (hereafter: network_interface_lh_user_X) 
+for each operating system user, which is accessible 
+only to its respective operating system user. The 
+program that lanuches the web based administration interface
+can then be launched by using the network_interface_lh_user_X
+in stead of the localhost. 
+
+
+On Raspberry Pi 3, Raspbian, the solution for creating the 
+network_interface_lh_user_X is to run
+
+    ifconfig lo:2 127.0.0.2 netmask 255.0.0.0 up
+
+    # The opposite would have the prefix "down":
+    # ifconfig lo:2 127.0.0.2 netmask 255.0.0.0 down 
+
+and then add the line
+
+    127.0.0.2    network_interface_lh_user_X
+
+to the 
+
+    /etc/hosts
+
+and then run 
+
+    service networking restart
+    systemctl daemon-reload
+    service networking restart  # the duplication is just in case
+
+and then test, whether the settings took effect by running:
+
+    ping -c 3 network_interface_lh_user_X
+
+
+The 127.0.0.2 is also visible from the output of the 
+
+    ip address # is a call to a command line utility called "ip"
+
+---------------------------------------------------------------------------
+       Section_05: Some Networking Related Commands and Ideas
+---------------------------------------------------------------------------
+
+A command for connecting a network interface to a Linux named pipe, if
+the network interface is:
+
+    network_interface_lh_user_X:4444 
+
+
+    mkfifo ./to_the_network_interface 
+    mkfifo ./from_the_network_interface
+    nc -l network_interface_lh_user_X 4444 < ./to_the_network_interface > ./from_the_network_interface
+
+Some iptables related commands:
+
+    iptables -L -v # lists the rules
+
+A citation from 
+
+    https://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/
+    ------------------citation--start-------------------
+    Even though pinging an external host seems like 
+    something that would only need to traverse the 
+    output chain, keep in mind that to return the data, 
+    the input chain will be used as well. 
+    When using iptables to lock down your system, 
+    remember that a lot of protocols will require 
+    two-way communication, so both the input and 
+    output chains will need to be configured properly. 
+    SSH is a common protocol that people forget 
+    to allow on both chains.
+    ------------------citation--end---------------------
+
+
+Some iptables related links:
+
+    https://www.cyberciti.biz/tips/block-outgoing-network-access-for-a-single-user-from-my-server-using-iptables.html
+    (archival copy: https://archive.is/l8EYe )
+
+
+# POOLELI
+TODO: complete this text by describing, how to change one
+local IP-address readable/writable to only one operating system user
+and to figure out something with the following 2 lines:
+    route add -host 127.0.0.3 dev lo
+    route del -host 127.0.0.3
+
+---------------------------------------------------------------------------
+                     Section_06: The BSD License
+---------------------------------------------------------------------------
+
+All of the components of the mmmv_userspace_distro_t1 have some
+license that is compatible with the BSD license. The parts that
+I, Martin.Vahi@softf1.com, have written, are usually under the
+BSD license, but some are also placed to "public domain"(0BSD).
+The BSD license is:
+
+Copyright from the inception of this software till 3000,
+martin.vahi@softf1.com that has an
+Estonian personal identification code of 38108050020.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or
+without modification, are permitted provided that the following
+conditions are met:
+
+*   Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+*   Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer
+    in the documentation and/or other materials provided with the
+    distribution.
+
+*   Neither the name of the Martin Vahi nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+
+The following line is a spdx.org license label line:
+SPDX-License-Identifier: BSD-3-Clause-Clear
+
+---------------------------------------------------------------------------
+              Section_07: A BSD License Related note
+---------------------------------------------------------------------------
+
+If You set up the mmmv_userspace_distro_t1 the way it is
+intended to be set up, then the path of the current file is 
+
+    $MMMV_USERSPACE_DISTRO_T1_HOME/COMMENTS.txt
+
+which in turn contains the BSD license text at its Section_06
+and with that the BSD license requirement about listing 
+me, the Martin.Vahi@softf1.com, as an author is satisfied.
+
+#--------------------------------------------------------------------------
+# Initial author of this file: Martin.Vahi@softf1.com
+# This file is in public domain.
+# The following line is a spdx.org license label line:
+# SPDX-License-Identifier: 0BSD
+# S_VERSION_OF_THIS_FILE="44b34215-9411-450b-a844-73025001b6e7"
+===========================================================================

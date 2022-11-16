@@ -1,0 +1,312 @@
+#!/usr/bin/env bash
+#==========================================================================
+# Initial author of this file: Martin.Vahi@softf1.com
+# This file is in public domain.
+#
+# The following line is a spdx.org license label line:
+# SPDX-License-Identifier: 0BSD
+#
+# As exiting from the ~/.bashrc exits the Bash session,
+# the ~/.bashrc and its subparts must not call "exit".
+# This script and all of the functions defined in it are "exit" free.
+#==========================================================================
+
+func_mmmv_wait_and_sync_t1(){
+    wait # for background processes started by this Bash script to exit/finish
+    sync # network drives, USB-sticks, etc.
+} # func_mmmv_wait_and_sync_t1
+
+#--------------------------------------------------------------------------
+func_mmmv_init_s_timestamp_if_not_inited_t1(){
+    if [ "$S_TIMESTAMP" == "" ]; then
+        if [ "`which date 2> /dev/null`" != "" ]; then
+            S_TIMESTAMP="`date +%Y`_`date +%m`_`date +%d`_T_`date +%H`h_`date +%M`min_`date +%S`s"
+        else
+            S_TIMESTAMP="0000_00_00_T_00h_00min_00s"
+            echo ""
+            echo "The console program \"date\" is missing from the PATH."
+            echo "Using a constant value, "
+            echo ""
+            echo "    S_TIMESTAMP=\"$S_TIMESTAMP\""
+            echo ""
+            echo "GUID=='cefeda53-e687-47c7-9585-00b0604015e7'"
+            echo ""
+        fi
+    fi
+} # func_mmmv_init_s_timestamp_if_not_inited_t1
+
+#--------------------------------------------------------------------------
+func_mmmv_verify_S_FP_ORIG_but_do_not_exit_t1(){
+    SB_S_FP_ORIG_VERIFICATION_FAILED="f"
+    if [ "$S_FP_ORIG" == "" ]; then 
+        SB_S_FP_ORIG_VERIFICATION_FAILED="t"
+        echo ""
+        echo "The code of this script has the flaw that "
+        echo "the variable S_FP_ORIG has not been set."
+        echo "GUID=='e023e44b-14a3-4025-a385-00b0604015e7'"
+        echo ""
+    else
+        if [ ! -e "$S_FP_ORIG" ]; then 
+            SB_S_FP_ORIG_VERIFICATION_FAILED="t"
+            echo ""
+            echo "The code of this script has the flaw that "
+            echo "the variable S_FP_ORIG has been declared, but "
+            echo "its value is some string that is not a file or folder path."
+            echo "It is expected to be a folder path."
+            echo ""
+            echo "    S_FP_ORIG==\"$S_FP_ORIG\""
+            echo ""
+            echo "GUID=='6260374e-c7aa-4791-8285-00b0604015e7'"
+            echo ""
+        else
+            if [ ! -d "$S_FP_ORIG" ]; then 
+                SB_S_FP_ORIG_VERIFICATION_FAILED="t"
+                echo ""
+                echo "The code of this script has the flaw that "
+                echo "the variable S_FP_ORIG references a file, but "
+                echo "it is expected to reference a folder."
+                echo ""
+                echo "    S_FP_ORIG==$S_FP_ORIG"
+                echo ""
+                echo "GUID=='8194963d-ce84-4fc2-8885-00b0604015e7'"
+                echo ""
+            fi
+        fi
+    fi
+    #----------------------------------------------------------------------
+    # exit 1 # must NOT be called in ~/.bashrc, because 
+             # exiting from the ~/.bashrc exits the session.
+    #----------------------------------------------------------------------
+    # Usage example:
+    #    func_mmmv_verify_S_FP_ORIG_but_do_not_exit_t1
+    #    if [ "$SB_S_FP_ORIG_VERIFICATION_FAILED" == "f" ]; then 
+    #        cd "$S_FP_ORIG"
+    #    else 
+    #        echo ""
+    #        echo "The code of this script is flawed."
+    #        echo "GUID=='0128bfe5-8879-48e4-b785-00b0604015e7'"
+    #        echo ""
+    #    fi
+} # func_mmmv_verify_S_FP_ORIG_but_do_not_exit_t1
+
+#--------------------------------------------------------------------------
+
+func_mmmv_report_an_error_but_do_not_exit_t1(){
+    local S_GUID_CANDIDATE=$1 # first  function argument
+    local S_ERR_MSG=$2        # second function argument
+    #----------------------------------------------------------------------
+    if [ "$S_GUID_CANDIDATE" == "" ]; then 
+        echo ""
+        echo "The code of this script is flawed."
+        if [ "$S_ERR_MSG" != "" ]; then 
+            echo "$S_ERR_MSG"
+        fi
+        echo "GUID=='2feb85e1-983b-4e12-8a85-00b0604015e7'"
+        echo ""
+    else
+        echo ""
+        echo "The code of this script is flawed."
+        if [ "$S_ERR_MSG" != "" ]; then 
+            echo "$S_ERR_MSG"
+        fi
+        echo "GUID_CANDIDATE=='$S_GUID_CANDIDATE'"
+        echo "GUID=='d82e6342-768b-434d-9485-00b0604015e7'"
+        echo ""
+    fi
+    #----------------------------------------------------------------------
+    # exit 1 # must NOT be called in ~/.bashrc, because 
+             # exiting from the ~/.bashrc exits the session.
+} # func_mmmv_report_an_error_but_do_not_exit_t1
+
+#--------------------------------------------------------------------------
+
+func_mmmv_report_missing_from_path_and_do_NOT_exit_t1() {
+    local S_NAME_OF_THE_EXECUTABLE=$1 # first function argument
+    #----------------------------------------------------------------------
+    local S_TMP_0="\`which $S_NAME_OF_THE_EXECUTABLE 2>/dev/null\`"
+    local S_TMP_1=""
+    local S_TMP_2="S_TMP_1=$S_TMP_0"
+    eval ${S_TMP_2}
+    if [ "$S_TMP_1" == "" ] ; then
+        echo ""
+        echo "This bash script wished to use the "
+        echo "\"$S_NAME_OF_THE_EXECUTABLE\" from the PATH, but "
+        echo "it was missing from the PATH."
+        echo "GUID=='33cfa803-fd3f-4abd-8885-00b0604015e7'"
+        echo ""
+    fi
+    #----------------------------------------------------------------------
+    # exit 1 # must NOT be called in ~/.bashrc, because 
+             # exiting from the ~/.bashrc exits the session.
+} # func_mmmv_report_missing_from_path_and_do_NOT_exit_t1
+
+#func_mmmv_report_missing_from_path_and_do_NOT_exit_t1 "ln"
+#func_mmmv_report_missing_from_path_and_do_NOT_exit_t1 "date"
+#func_mmmv_report_missing_from_path_and_do_NOT_exit_t1 "printf"
+#func_mmmv_report_missing_from_path_and_do_NOT_exit_t1 "grep"
+#func_mmmv_report_missing_from_path_and_do_NOT_exit_t1 "git"
+
+#--------------------------------------------------------------------------
+
+func_mmmv_verify_that_the_file_exists_but_do_not_exit_t1() {  # S_FP, S_GUID_CANDIDATE
+    local S_FP="$1"
+    local S_GUID_CANDIDATE="$2"
+    #------------------------------
+    # A global variable for storing function output.
+    SB_VERIFICATION_FAILED="f" # domain: "t", "f" .
+    #------------------------------
+    if [ "$S_GUID_CANDIDATE" == "" ]; then
+        echo ""
+        echo "The code that calls this function is flawed."
+        echo "This function requires 2 parameters: S_FP, S_GUID_CANDIDATE"
+        echo "GUID=='e45237c2-9fc8-4e12-8985-00b0604015e7'"
+        echo ""
+        #--------
+        SB_VERIFICATION_FAILED="t"
+    fi
+    #------------------------------
+    if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
+        if [ ! -e "$S_FP" ]; then
+            if [ -h "$S_FP" ]; then
+                echo ""
+                echo "The path "
+                echo ""
+                echo "    $S_FP "
+                echo ""
+                echo "points to a broken symlink, but a file or "
+                echo "a symlinkt to a file is expected."
+                echo "GUID==\"$S_GUID_CANDIDATE\""
+                echo "GUID=='50a052d4-ecd2-47b2-ba85-00b0604015e7'"
+                echo ""
+                #--------
+                SB_VERIFICATION_FAILED="t"
+            else
+                echo ""
+                echo "The file "
+                echo ""
+                echo "    $S_FP "
+                echo ""
+                echo "does not exist."
+                echo "GUID==\"$S_GUID_CANDIDATE\""
+                echo "GUID=='6a33dd22-bd4d-428b-9185-00b0604015e7'"
+                echo ""
+                #--------
+                SB_VERIFICATION_FAILED="t"
+            fi
+        else
+            if [ -d "$S_FP" ]; then
+                echo ""
+                if [ -h "$S_FP" ]; then
+                    echo "The symlink to the folder "
+                else
+                    echo "The folder "
+                fi
+                echo ""
+                echo "    $S_FP "
+                echo ""
+                echo "exists, but a file or a symlink to a file is expected."
+                echo "GUID==\"$S_GUID_CANDIDATE\""
+                echo "GUID=='08483654-8209-4e85-a285-00b0604015e7'"
+                echo ""
+                #--------
+                SB_VERIFICATION_FAILED="t"
+            fi
+        fi
+    fi #  "$SB_VERIFICATION_FAILED" == "f"
+    #------------------------------
+    if [ "$SB_VERIFICATION_FAILED" != "t" ]; then
+        if [ "$SB_VERIFICATION_FAILED" != "f" ]; then
+            echo ""
+            echo "The code of this Bash function is flawed."
+            echo "GUID=='b2d70151-ea7f-4812-8585-00b0604015e7'"
+            echo ""
+        fi
+    fi
+    #------------------------------
+} # func_mmmv_verify_that_the_file_exists_but_do_not_exit_t1
+
+#--------------------------------------------------------------------------
+
+func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1() {  # S_FP, S_GUID_CANDIDATE
+    local S_FP="$1"
+    local S_GUID_CANDIDATE="$2"
+    #------------------------------
+    # A global variable for storing function output.
+    SB_VERIFICATION_FAILED="f" # domain: "t", "f" .
+    #------------------------------
+    if [ "$S_GUID_CANDIDATE" == "" ]; then
+        echo ""
+        echo "The code that calls this function is flawed."
+        echo "This function requires 2 parameters: S_FP, S_GUID_CANDIDATE"
+        echo "GUID=='f17d4a56-9d15-4801-8185-00b0604015e7'"
+        echo ""
+        #--------
+        SB_VERIFICATION_FAILED="t"
+    fi
+    #------------------------------
+    if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
+        if [ ! -e "$S_FP" ]; then
+            if [ -h "$S_FP" ]; then
+                echo ""
+                echo "The path "
+                echo ""
+                echo "    $S_FP "
+                echo ""
+                echo "points to a broken symlink, but a folder "
+                echo "or a symlink to a folder is expected."
+                echo "GUID==\"$S_GUID_CANDIDATE\""
+                echo "GUID=='d7419546-16c2-4f6c-9385-00b0604015e7'"
+                echo ""
+                #--------
+                SB_VERIFICATION_FAILED="t"
+            else
+                echo ""
+                echo "The folder "
+                echo ""
+                echo "    $S_FP "
+                echo ""
+                echo "does not exist."
+                echo "GUID==\"$S_GUID_CANDIDATE\""
+                echo "GUID=='14e0dc63-b7ba-4970-b385-00b0604015e7'"
+                echo ""
+                #--------
+                SB_VERIFICATION_FAILED="t"
+            fi
+        else
+            if [ ! -d "$S_FP" ]; then
+                echo ""
+                if [ -h "$S_FP" ]; then
+                    echo "The symlink to an existing file "
+                else
+                    echo "The file "
+                fi
+                echo ""
+                echo "    $S_FP "
+                echo ""
+                echo "exists, but a folder is expected."
+                echo "GUID==\"$S_GUID_CANDIDATE\""
+                echo "GUID=='0b501f54-5254-4019-b385-00b0604015e7'"
+                echo ""
+                #--------
+                SB_VERIFICATION_FAILED="t"
+            fi
+        fi
+    fi #  "$SB_VERIFICATION_FAILED" == "f"
+    #------------------------------
+    if [ "$SB_VERIFICATION_FAILED" != "t" ]; then
+        if [ "$SB_VERIFICATION_FAILED" != "f" ]; then
+            echo ""
+            echo "The code of this Bash function is flawed."
+            echo "GUID=='84e34ed2-90f7-460c-8575-00b0604015e7'"
+            echo ""
+        fi
+    fi
+    #------------------------------
+} # func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1
+
+#---------------start--of--the--root--specific--part-----------------------
+SB_BASHRC_SUBPART_FUNC_CORE_T1_FOR_ROOT_LOADED="t"
+
+#---------------end----of--the--root--specific--part-----------------------
+
+#==========================================================================

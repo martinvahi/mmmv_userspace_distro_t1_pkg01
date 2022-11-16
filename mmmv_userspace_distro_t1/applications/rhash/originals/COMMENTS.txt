@@ -1,0 +1,11 @@
+
+Home pages:
+
+    http://rhash.sourceforge.net/
+    https://sourceforge.net/projects/rhash/
+    https://github.com/rhash/
+
+Related pages:
+
+    https://ehash.iaik.tugraz.at/wiki/The_Hash_Function_Zoo
+

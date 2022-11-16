@@ -1,0 +1,22 @@
+proc            /proc           proc    defaults          0       0
+/dev/mmcblk0p1  /boot           vfat    defaults          0       2
+/dev/mmcblk0p2  /               ext4    defaults,noatime  0       1
+
+tmpfs     /opt/partitions/10MiB_RAM_disk   tmpfs   nodev,size=10M 0 0
+
+# The 'blkid' can be used for printing the universally unique 
+# identifier for a device. This may be used with UUID= as 
+# a more robust way to name devices. That works even if 
+# disks are added and removed. Please see fstab(5).
+#
+# <file system> <mount point>   <type>  <options>            <dump>  <pass>
+#tmpfs           /tmp            tmpfs   nodev,nosuid,size=50M 0       0
+
+# An example, how to auto-mount an USB storage
+# device during boot. The USB storage device must
+# be connected to the computer prior to power-up. Alternatively 
+# the 2015 edition of the Raspbian operating system offers 
+#     apt-get install usbmount
+#
+#UUID=4165b262-2e70-460d-aa8e-81b46dcc24f8 /opt/the_mounting_point ext4  errors=remount-ro 0   1
+

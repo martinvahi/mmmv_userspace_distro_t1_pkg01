@@ -1,0 +1,40 @@
+
+GNU libtool home page:
+
+    https://www.gnu.org/software/libtool/
+
+The 
+
+    ./libtool-2.4.6.tar.gz
+
+has been downloaded on 2022_01_06 form
+
+    https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz
+
+Tested to build on ("uname -a")
+
+---verbatim--start-----
+Linux hoidla01 4.19.0-10-amd64 #1 SMP Debian 4.19.132-1 (2020-07-24) x86_64 GNU/Linux
+---verbatim--end-------
+
+with 
+
+---verbatim--start-----
+./configure --prefix=/home/mmmv/applications/libtool_GNU/v_2_4_6 --with-gnu-ld 
+make
+make install
+---verbatim--end-------
+
+with GCC ("gcc -v")
+
+---verbatim--start-----
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/home/mmmv/applications/Ada/v2019_05_17_GNAT_Community/bin/../libexec/gcc/x86_64-pc-linux-gnu/8.3.1/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none
+Target: x86_64-pc-linux-gnu
+Configured with: ../src/configure --enable-languages=ada,c,c++ --enable-dual-exceptions --enable-offload-targets=nvptx-none --enable-_cxa_atexit --enable-threads=posix --with-bugurl=URL:mailto:report@adacore.com --disable-nls --without-libiconv-prefix --disable-libstdcxx-pch --disable-libada --enable-checking=release --disable-multilib --with-mpfr=/it/sbx/a2c2/x86_64-linux/mpfr_stable-c/install --with-gmp=/it/sbx/a2c2/x86_64-linux/gmp_stable-c/install --with-mpc=/it/sbx/a2c2/x86_64-linux/mpc_stable-c/install --with-build-time-tools=/it/sbx/a2c2/x86_64-linux/gcc-c/build/buildtools/bin --prefix=/it/sbx/a2c2/x86_64-linux/gcc-c/pkg --build=x86_64-pc-linux-gnu
+Thread model: posix
+gcc version 8.3.1 20190518 (for GNAT Community 2019 20190517) (GCC) 
+---verbatim--end-------
+

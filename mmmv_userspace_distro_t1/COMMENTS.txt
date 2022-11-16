@@ -1,0 +1,55 @@
+===========================================================================
+====  2022_11_13_mmmv_userspace_distro_t1_beta_01_crippled_version  =======
+===========================================================================
+
+mmmv_userspace_distro_t1 is a set of code templates and 
+Linux/BSD specific Bash scripts that copy the code templates and
+declare various aliases according to the presence/availability
+of the programs that are used at the alias declarations. 
+
+The mmmv_userspace_distro_t1 can be seen as part of development
+environment setup. Historically the mmmv_userspace_distro_t1 
+started out as a set of common Bash scripts, Ruby programs and 
+Bash alias declarations that Martin.Vahi@softf1.com used at 
+different physical machines and virtual appliances.   
+The mmmv_userspace_distro_t1 is a way to name that set of 
+loose components that can be used in concert.
+
+#--------------------------------------------------------------------------
+This is a crippled version of the 2022_11_13_mmmv_userspace_distro_t1_beta_01.
+Full version has a size of 9.5GiB and it MIGHT be downloadable from
+
+    https://1fichier.com/dir/YGnlt3Gp
+
+where the anti-bot password, FooBar923, must be typed in instead of copy-pasting it.
+The main things that are missing from the crippled version, are 
+
+    x) GCC version 11.2.0 code and compilation script; 
+
+    x) Windows Subsystem for Linux (WSL) related components at 
+           ./mmmv_userspace_distro_t1/attic
+
+    x) a clone of Martin Vahi's GitHub account
+           https://github.com/martinvahi
+       most notably, the clones of projects 
+       wappskafander_t2 and mmmv_notes;
+
+    x) local copy of Maven modules, which usually reside at
+          $HOME/.m2
+       (Maven is a GNU Make analogue for Java projects.)
+
+#--------------------------------------------------------------------------
+                         Setup Introduction
+#--------------------------------------------------------------------------
+
+Operating system user mmmv is for holding files that are common to 
+other operating system users. The user mmmv is the "standard user" of 
+the mmmv_distrocomponents_t1. The mmmv_userspace_distro_t1 is 
+a sub-project of the mmmv_distrocomponents_t1. 
+Further information about the setup resides at 
+
+    ./mmmv_userspace_distro_t1/COMMENTS.txt
+
+#--------------------------------------------------------------------------
+# S_VERSION_OF_THIS_FILE="12b6ac8b-21e3-4c5f-b423-92c11101b6e7"
+#==========================================================================

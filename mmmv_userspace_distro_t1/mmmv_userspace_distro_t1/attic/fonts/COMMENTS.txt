@@ -1,0 +1,38 @@
+
+The 
+
+    ./the_fonts
+
+contain upstream originals of the
+
+    ./../../mmmv/etc/_fonts
+
+and the 
+
+    ./../../mmmv/etc/_fonts
+
+is a default target of a symlik
+
+    ~/.fonts
+
+in a situation, where the 
+
+    ~/.fonts
+
+has not been created manually. In the case of Linux 
+the font files (.ttf, etc.) are read from 
+Linux distribution standard fonts folder and the 
+
+    ~/.fonts
+
+The way to make the fonts available to the various
+applications that use the fonts, is to execute
+
+    # https://www.techrepublic.com/blog/linux-and-open-source/how-do-i-install-and-use-fonts-in-linux/
+    # archival copy: https://archive.vn/UgphK
+    fc-cache -f -v 
+
+which MIGHT be defined by an alias
+
+    mmmv_admin_refresh_fonts_cache_t1 # should work on both, Linux and BSD.
+

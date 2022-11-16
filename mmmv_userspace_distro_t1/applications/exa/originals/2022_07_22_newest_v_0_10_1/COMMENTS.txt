@@ -1,0 +1,7 @@
+
+Download URL:
+
+    https://github.com/ogham/exa/archive/refs/tags/v0.10.1.tar.gz
+
+Download date: 2022_07_22
+

@@ -1,0 +1,15 @@
+
+The UFW is an iptables wrapper and 
+its name is an acronym for "Uncomplicated Firewall".
+
+    ./src/ufw-0.36.1.tar.gz
+    https://launchpad.net/ufw/0.36/0.36.1/+download/ufw-0.36.1.tar.gz
+    Download date: 2022_08_31
+
+The 
+
+    https://wiki.debian.org/Firewalls
+    archival copy: https://archive.ph/N181B
+
+might have a list of iptables wrappers.
+

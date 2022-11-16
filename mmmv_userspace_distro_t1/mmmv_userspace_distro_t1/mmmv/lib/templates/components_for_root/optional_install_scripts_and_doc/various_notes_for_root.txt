@@ -1,0 +1,11 @@
+
+
+---------------------------------------------------------------------------
+How to Restart X Server from Command line
+---------------------------------------------------------------------------
+
+https://askubuntu.com/questions/1220/how-to-restart-x-window-server-from-command-line
+
+    systemctl restart display-manager
+
+---------------------------------------------------------------------------

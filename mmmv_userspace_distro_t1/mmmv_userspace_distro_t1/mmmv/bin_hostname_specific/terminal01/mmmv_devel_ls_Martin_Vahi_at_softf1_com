@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#==========================================================================
+# Initial author of this file: Martin.Vahi@softf1.com
+# This file is in public domain.
+# The following line is a spdx.org license label line:
+# SPDX-License-Identifier: 0BSD
+#--------------------------------------------------------------------------
+
+printf "%b" 'Martin.Vahi@softf1.com'
+
+#--------------------------------------------------------------------------
+# S_VERSION_OF_THIS_FILE="bed26c5f-0ea0-47c9-a123-60c12170a6e7"
+#==========================================================================

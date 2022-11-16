@@ -1,0 +1,9 @@
+
+The 
+
+    https://wiki.debian.org/Firewalls
+    archival copy: https://archive.ph/N181B
+    local copy: ./2022_08_31_Debian_Linux_Firewalls_t1.pdf
+
+might have a list of iptables wrappers.
+

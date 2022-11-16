@@ -1,0 +1,28 @@
+
+The 
+
+    (Tested to work on Android_7.)
+    ./cn.trinea.android.developertools_636_apps.evozi.com.apk
+
+is a advertisement ridden closed source software 
+that as of 2022_09_13 has an upstream distribution URL of 
+
+    https://play.google.com/store/apps/details?id=cn.trinea.android.developertools&gl=US
+
+Due to the Google aggressive spying/privacy_violation_efforts the 
+
+    ./cn.trinea.android.developertools_636_apps.evozi.com.apk
+
+has been downloaded through a 3. party download service
+
+    https://apps.evozi.com/apk-downloader/
+
+that as of 2022_09 seems to be set up by a Malaysian company.
+The 3. party might have inserted its own malware to the installer, but 
+in Android_7 it is possible to disable the application from Android 
+settings after installing it and on Android_7 the application 
+works fine without receiving any special access rights from the user. 
+For example, it does not require any read-write access. 
+(Not explicitly requiring access does not mean that 
+some malware doesn't have the access.)
+

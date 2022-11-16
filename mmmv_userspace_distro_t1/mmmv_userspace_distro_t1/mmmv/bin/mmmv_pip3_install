@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#==========================================================================
+# Initial author of this file: Martin.Vahi@softf1.com
+# This file is in public domain.
+#
+# The following line is a spdx.org license label line:
+# SPDX-License-Identifier: 0BSD
+#--------------------------------------------------------------------------
+
+if [ "$PYTHONUSERBASE" == "" ]; then
+    echo ""
+    echo "The Python related environment varioable PYTHONUSERBASE "
+    echo "has not been set."
+    echo "GUID='3ebbed34-df12-48a1-b1a6-12c280d026e7'"
+    echo ""
+    exit 1
+else
+    #nice -n 5 pip3 --proxy $MMMV_PROXY_URL install $1 --target=$PYTHONUSERBASE 
+    nice -n 5 pip3 install $1 --target=$PYTHONUSERBASE --upgrade
+fi 
+
+#--------------------------------------------------------------------------
+# S_VERSION_OF_THIS_FILE="2ec1eb31-92a1-415c-81a6-12c280d026e7"
+#==========================================================================

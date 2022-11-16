@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+#Terminal=false
+Terminal=true
+Icon[en_US]=gnome-panel-launcher
+Name[en_US]=General Comments
+Exec=/bin/bash /opt/mmmv/mmmv_virtual_appliance_t1/bin/mmmv_doc_general_help
+Name=General Comments
+Icon=gnome-panel-launcher

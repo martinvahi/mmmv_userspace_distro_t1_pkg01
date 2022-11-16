@@ -1,0 +1,23 @@
+
+Files and their download URLs:
+
+    ./upstream_deliverables/lsblk.sh.examples.png
+    https://forums.freebsd.org/attachments/lsblk-sh-examples-png.3071/
+
+    ./upstream_deliverables/lsblk.sh.txt
+    https://forums.freebsd.org/attachments/lsblk-sh-txt.3085/
+
+The 
+
+    ./bin/lsblk_for_FeeBSD_v2021_07_xx_t1.sh
+
+has been tested on 
+
+    # The output of the "uname -a"
+    FreeBSD capella.elkdata.ee 12.2-RELEASE-p7 FreeBSD 12.2-RELEASE-p7 GENERIC  amd64
+
+and it is a slightly modified version of the 
+
+    ./upstream_deliverables/lsblk.sh.txt
+
+
