@@ -1,0 +1,40 @@
+
+Overview
+~~~~~~~~
+
+    The content of the 
+    
+        ./converted_to_HTML
+    
+    has been generated from the content of the
+    
+        ./in_vimwiki_format
+    
+    by using vimwiki command ":VimwikiAll2HTML". 
+    The content of the 
+    
+        ./converted_to_HTML
+    
+    is meant to be browsed with terminal based web browsers like
+    "links" or "elinks" or "lynx". Browser invocation example:
+    
+        elinks ./converted_to_HTML/index.html
+
+
+
+Various Terminal Based web Browsers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    https://netrik.sourceforge.net/
+
+    https://w3m.sourceforge.net/
+        fork: http://pub.ks-and-ks.ne.jp/prog/w3mmee/
+
+    http://elinks.cz/
+
+    Written in Go and requires FireFox:
+        https://www.brow.sh/
+        https://github.com/browsh-org/
+
+
+

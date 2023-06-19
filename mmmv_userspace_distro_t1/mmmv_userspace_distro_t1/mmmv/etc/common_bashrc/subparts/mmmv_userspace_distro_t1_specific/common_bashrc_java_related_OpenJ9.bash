@@ -6,14 +6,21 @@
 # The following line is a spdx.org license label line:
 # SPDX-License-Identifier: 0BSD
 #==========================================================================
-# S_VERSION_OF_THIS_FILE="468a3b18-347e-421b-b59f-5053808096e7"
-#--------------------------------------------------------------------------
-
-#export JAVA_HOME="/home/mmmv/applications/Java/installed/ja_nii_edasi/v2021_03_xx_Java11_OpenJ9/jdk-11.0.10+9"
 S_FP_JIT_CACHE_FOLDER="$HOME/.mmmv/Java/OpenJ9/AOT_cache"
 
+SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE="f"
+func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
+    "$S_FP_JIT_CACHE_FOLDER"  "10590737-6f75-4819-931b-113380a127e7" \
+    "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE"
+if [ "$SB_VERIFICATION_FAILED" == "t" ]; then
+    mkdir -p "$S_FP_JIT_CACHE_FOLDER"
+    func_mmmv_wait_and_sync_t1
+    func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
+        "$S_FP_JIT_CACHE_FOLDER"  "8a7e1144-aa0e-4fd7-b11b-113380a127e7" \
+        "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
+fi
+#--------------------------------------------------------------------------
 #S_FP_APPLICATION_EXECUTABLE=""
-
 #--------------------------------------------------------------------------
 
 # Ahead-of-Time compilation (AOT) related settings:
@@ -30,7 +37,12 @@ S_FP_JIT_CACHE_FOLDER="$HOME/.mmmv/Java/OpenJ9/AOT_cache"
 #
 #     -Xaot:count=<a nonnegative integer> # method call count before it gets compiled, 0 compiles on 1. execution
 #
-#     -Xshareclasses:cacheDir=<directory>
+#     -Xshareclasses:cacheDir=<directory>  # is ~/.cache/javasharedresources by default, but
+#                                          # if ~/javasharedresources exists, then 
+#                                          # this parameter might be ignored and the
+#                                          # ~/javasharedresources is used instead.
+#
+#     -Xshareclasses:verboseAOT  # writes feedback to console about loadng from and storing to the AOT.
 #     -Xshareclasses:adjustmaxaot=<size>     is the same as -Xscmaxaot<size>
 #     -Xshareclasses:adjustminaot=<size>     is the same as -Xscminaot<size>
 #     -Xshareclasses:adjustmaxjitdata=<size> is the same as -Xcsmaxjitdata<size>
@@ -44,9 +56,10 @@ S_FP_JIT_CACHE_FOLDER="$HOME/.mmmv/Java/OpenJ9/AOT_cache"
 #                           # suboption, which is equivalent to 
 #                           # -Xshareclasses:bootClassesOnly,nonfatal. 
 #
-S_AOT_0=" -Xshareclasses -Xscminaot20K -Xscmaxaot200M -Xaot:count=20 -Xshareclasses:persistent"
+S_AOT_0=" -Xshareclasses -Xscminaot20K -Xscmaxaot60M -Xaot:count=20 -Xshareclasses:persistent"
 S_AOT_1=" -Xshareclasses:cacheDir=$S_FP_JIT_CACHE_FOLDER -Xshareclasses:fatal " 
-S_AOT_ALL=" $S_AOT_0 $S_AOT_1"
+S_AOT_2=" -Xshareclasses:verboseAOT " 
+S_AOT_ALL=" $S_AOT_0 $S_AOT_1 $S_AOT_2 "
 
 # Just-in-Time compilation (JIT) related settings:
 #     https://www.ibm.com/support/knowledgecenter/SSYKE2_8.0.0/openj9/xcompilationthreads/index.html
@@ -115,5 +128,5 @@ export OPENJ9_JAVA_OPTIONS=" $S_RUNTIME_OPTIMIZATIONS_0 $S_AOT_ALL $S_JIT_ALL $S
 #--------------------------------------------------------------------------
 #$S_FP_APPLICATION_EXECUTABLE
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="0d5cca47-f42a-4e9b-949f-5053808096e7"
+# S_VERSION_OF_THIS_FILE="8a7a915a-d7f0-418a-931b-113380a127e7"
 #==========================================================================

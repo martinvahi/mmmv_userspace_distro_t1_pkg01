@@ -54,9 +54,9 @@ class Breakdancemake_bdmroutine_pseudocron_ui_texts
       "\n        RUN_BASH_T1:== run_bash_t1 --s_bash_command=<a string> TIMESPEC "+
       "\n"+
       "\n        TIMESPEC:==  TIMESPEC_PART_1 TIMESPEC_PART_2 TIMESPEC_PART_3"+
-      "\n        TIMESPEC_PART_1:==  (i_n_of_seconds=<an integer>)? (i_n_of_minutes=<an integer>)?"+
-      "\n        TIMESPEC_PART_2:==  (i_n_of_hours=<an integer>)? (i_n_of_days=<an integer>)?"+
-      "\n        TIMESPEC_PART_3:==  (i_interval_in_seconds=<an integer>)? "+
+      "\n        TIMESPEC_PART_1:==  (--i_n_of_seconds=<an integer>)? (--i_n_of_minutes=<an integer>)?"+
+      "\n        TIMESPEC_PART_2:==  (--i_n_of_hours=<an integer>)? (--i_n_of_days=<an integer>)?"+
+      "\n        TIMESPEC_PART_3:==  (--i_interval_in_seconds=<an integer>)? "+
       "\n"
       case s_language
       when $kibuvits_lc_et

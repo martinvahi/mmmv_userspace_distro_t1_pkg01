@@ -18,7 +18,7 @@ if [ "$MMMV_USERSPACE_DISTRO_T1_BASHRC_PREFIX_LOAD_MODE_T1" != "mode_ok_to_load"
         echo ""
     fi
     echo "Exiting with an error code $S_ERR_CODE ."
-    echo "GUID=='3a71cc3a-3327-45d8-84aa-b143808096e7'"
+    echo "GUID=='278c3ab0-840f-42b9-931e-83d1514127e7'"
     echo ""
     exit $S_ERR_CODE # exit with an error
 fi
@@ -107,26 +107,30 @@ fi
 if [ "$SB_OPERATINGSYSTEM_LINUX_ANDROID_TERMUX" == "f" ]; then
     if [ "$SB_FAILED_TO_INIT_ALIAS_MMMV_IMAGE_VIEWER" != "f" ]; then
         if [ "$SB_FAILED_TO_INIT_ALIAS_MMMV_IMAGE_VIEWER" == "t" ]; then
-            echo ""
-            echo "The alias mmmv_image_viewer was left undefined, because "
-            echo "none of the followning image viewer programs were found on the PATH:"
-            echo ""
-            echo "    viewnior, xloadimage, xview, feh, mirage, geeqie, sxiv, "
-            echo "    gpicview, nomacs, eom, mcomix, eog, ristretto, gwenview "
-            echo ""
-            echo "GUID=='2524c34d-8b0e-4be7-b3aa-b143808096e7'"
-            echo ""
-            # TODO: add some Java image viewer as the very last fallback option.
+            if [ "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT" != "f" ]; then
+                echo ""
+                echo "The alias mmmv_image_viewer was left undefined, because "
+                echo "none of the followning image viewer programs were found on the PATH:"
+                echo ""
+                echo "    viewnior, xloadimage, xview, feh, mirage, geeqie, sxiv, "
+                echo "    gpicview, nomacs, eom, mcomix, eog, ristretto, gwenview "
+                echo ""
+                echo "GUID=='9c5e4e27-dae0-488c-b11e-83d1514127e7'"
+                echo ""
+                # TODO: add some Java image viewer as the very last fallback option.
+            fi
         else
-            echo ""
-            echo "The code of this Bash script is flawed."
-            echo "GUID=='763f87da-0ca4-4165-8daa-b143808096e7'"
-            echo ""
+            if [ "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT" != "f" ]; then
+                echo ""
+                echo "The code of this Bash script is flawed."
+                echo "GUID=='dee06231-868a-4d1a-a31e-83d1514127e7'"
+                echo ""
+            fi
         fi
     fi
 fi
 #--------------------------------------------------------------------------
 func_mmmv_wait_and_sync_t1 # Just to be sure.
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="0c13fd38-e582-4d65-91aa-b143808096e7"
+# S_VERSION_OF_THIS_FILE="c1962502-a4f5-454f-8c1e-83d1514127e7"
 #==========================================================================

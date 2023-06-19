@@ -1,0 +1,5 @@
+
+Cloning URL:
+
+    https://github.com/vimwiki/vimwiki.git
+

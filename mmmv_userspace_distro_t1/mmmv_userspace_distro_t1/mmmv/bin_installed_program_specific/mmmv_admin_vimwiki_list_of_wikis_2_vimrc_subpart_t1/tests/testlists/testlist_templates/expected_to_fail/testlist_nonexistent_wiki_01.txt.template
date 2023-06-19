@@ -1,0 +1,5 @@
+
+# The fact that the 
+/tmp/what/ever/Foo/testwiki_01/ # does not exist
+# should trigger a warning.
+# That is to say, this list of wikis is valid from syntax point of view.

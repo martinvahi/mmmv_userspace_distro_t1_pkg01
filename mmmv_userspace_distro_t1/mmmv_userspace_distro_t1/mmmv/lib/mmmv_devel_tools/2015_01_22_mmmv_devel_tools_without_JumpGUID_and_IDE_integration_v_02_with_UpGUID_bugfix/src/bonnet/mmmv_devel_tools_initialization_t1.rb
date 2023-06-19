@@ -1,5 +1,32 @@
 #!/usr/bin/env ruby
 #==========================================================================
+# Ruby language version related normalization:
+#--------------------------------------------------------------------------
+# Most Ruby versions prior to Ruby version 3.2.0
+# had that method. This code makes old code that
+# worked with those older Ruby versions
+# work with the Ruby version 3.2.0 .
+if !defined? File.exists?
+   def File.exists? x
+      b=File.exist? x
+      return b
+   end # File.exists?
+end # if
+# Ruby 2.4.0 introduced a change, where
+# classes Fixnum and Bignum were deprecated
+# their use triggered a warning text to stderr
+# and their common parent class, Integer,
+# was expected to be used instead of them.
+# Ruby version 2.7.2 removed the warning from the stderr.
+# Ruby version 3.2.0 missed the classes, Fixnum and Bignum.
+# The following 2 if-clauses keep the old code working.
+if !defined? Fixnum
+   Fixnum=Integer
+end # if
+if !defined? Bignum
+   Bignum=Integer
+end # if
+#==========================================================================
 
 # The reason, why the following if-else blocks are not within a function
 # is that the Ruby interpreter requires the constant initialization to be
@@ -13,7 +40,7 @@ if !defined? MMMV_DEVEL_TOOLS_HOME
    raise(Exception.new("The Ruby constant, MMMV_DEVEL_TOOLS_HOME, "+
    "should have been defined before the control flow reaches the "+
    "file, from where this exception is thrown."+
-   "\nGUID=='fd590255-3685-4153-b375-538231b1aed7'"))
+   "\nGUID=='2d264415-f124-45b0-9424-a3d1015037e7'"))
    exit
 end # if
 
@@ -51,7 +78,7 @@ if !defined? KIBUVITS_s_NUMERICAL_VERSION
    "been defined in the \n"+
    s_kibuvits_boot_path+
    ". That indicates a Kibuvits Ruby Library version mismatch."+
-   "\n GUID='ce902441-93d1-4df9-b575-538231b1aed7'\n\n"
+   "\n GUID='d30f280e-4498-4189-8224-a3d1015037e7'\n\n"
    raise Exception.new(msg)
 end # if
 s_expected_KIBUVITS_s_NUMERICAL_VERSION="1.7.1"
@@ -59,7 +86,7 @@ if KIBUVITS_s_NUMERICAL_VERSION!=s_expected_KIBUVITS_s_NUMERICAL_VERSION
    msg="\nThis version of the mmmv_devel_tools expects the Ruby constant, \n"+
    "KIBUVITS_s_NUMERICAL_VERSION, to have the value of \""+s_expected_KIBUVITS_s_NUMERICAL_VERSION+"\", \n"+
    "but the KIBUVITS_s_NUMERICAL_VERSION=="+KIBUVITS_s_NUMERICAL_VERSION.to_s+
-   "\n GUID='e096ce3d-c538-41d5-9475-538231b1aed7'\n\n"
+   "\n GUID='c55e88d1-3d2b-40f2-a224-a3d1015037e7'\n\n"
    raise Exception.new(msg)
 end # if
 
@@ -193,7 +220,7 @@ class C_mmmv_devel_tools_global_singleton
       b_parse=true if 3<(fd_t_now-@fd_config_reading_time)
       if (b_parse==false) && (@ht_global_configuration_cache==nil)
          kibuvits_throw("\n\nThis code has a flaw. \n"+
-         "GUID='172cc4b5-be21-4852-b875-538231b1aed7'\n\n")
+         "GUID='0b1d075e-78dd-4386-8224-a3d1015037e7'\n\n")
       end # if
       if b_parse
          ht_out=Hash.new

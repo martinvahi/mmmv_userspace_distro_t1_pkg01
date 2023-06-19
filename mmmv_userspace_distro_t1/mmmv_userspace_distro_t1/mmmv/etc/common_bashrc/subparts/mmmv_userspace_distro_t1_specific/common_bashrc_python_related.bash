@@ -18,7 +18,7 @@ if [ "$MMMV_USERSPACE_DISTRO_T1_BASHRC_PREFIX_LOAD_MODE_T1" != "mode_ok_to_load"
         echo ""
     fi
     echo "Exiting with an error code $S_ERR_CODE ."
-    echo "GUID=='1c86f782-5cf1-4417-98be-7163808096e7'"
+    echo "GUID=='42f4ca1e-4dfd-4491-b513-e0e1514127e7'"
     echo ""
     exit $S_ERR_CODE # exit with an error
 fi
@@ -66,17 +66,20 @@ if [ ! -e "$PYTHONUSERBASE" ]; then
     mkdir -p $PYTHONUSERBASE 
     func_mmmv_wait_and_sync_t1
     if [ ! -e "$PYTHONUSERBASE" ]; then
-        echo ""
-        echo "The PYTHONUSERBASE (== "
-        echo "$PYTHONUSERBASE"
-        echo ") is missing. and its creation also failed."
-        echo "GUID=='cc5b5725-8a94-423b-a5be-7163808096e7'"
-        echo ""
+        if [ "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT" != "f" ]; then
+            echo ""
+            echo "The PYTHONUSERBASE (== "
+            echo "$PYTHONUSERBASE"
+            echo ") is missing. and its creation also failed."
+            echo "GUID=='a1d64637-5fbd-461b-b413-e0e1514127e7'"
+            echo ""
+        fi
     fi
 fi
 SB_VERIFICATION_FAILED="t" # a variable for the output of the
 func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
-    "$PYTHONUSERBASE" "541c9ea9-8811-4459-adbe-7163808096e7"
+    "$PYTHONUSERBASE" "3e2ccc2f-46ff-457b-a113-e0e1514127e7" \
+    "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
 if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
     PYTHONPATH="$PYTHONUSERBASE:$PYTHONPATH"
     S_FP_0="$PYTHONUSERBASE/bin"
@@ -85,7 +88,8 @@ if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
         func_mmmv_wait_and_sync_t1
     fi
     func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
-        "$S_FP_0" "56be8013-0768-4489-a5be-7163808096e7"
+        "$S_FP_0" "7119462b-d34d-4762-9513-e0e1514127e7" \
+        "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
     if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
         Z_PATH="$S_FP_0:$Z_PATH"
     fi
@@ -98,5 +102,5 @@ export PYTHONPATH
 #export PYTHONNOUSERSITE="$PYTHONUSERBASE"
 
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="31c894a4-6d37-4658-8abe-7163808096e7"
+# S_VERSION_OF_THIS_FILE="da327842-beeb-4527-9513-e0e1514127e7"
 #==========================================================================

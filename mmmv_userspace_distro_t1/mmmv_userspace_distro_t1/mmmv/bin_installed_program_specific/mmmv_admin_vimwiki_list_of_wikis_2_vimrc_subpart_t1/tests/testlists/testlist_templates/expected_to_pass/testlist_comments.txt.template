@@ -1,0 +1,17 @@
+
+# This testlist # is 
+      # for testing the 
+
+# removal of comments and
+S_FP_TESTWIKIS/testwiki_01/ # at different places
+    S_FP_TESTWIKIS/testwiki_02/ 
+# and the removal of empty lines.
+#
+S_FP_TESTWIKIS/testwiki_03/  # at different places
+   S_FP_TESTWIKIS/testwiki_04/     
+
+# A comment suffixed by # and some other #
+# A comment suffixed by # and some other # Foo 
+    # A comment suffixed by # and some other #
+    # A comment suffixed by # and some other # Foo 
+

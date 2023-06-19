@@ -1,0 +1,21 @@
+
+#==========================================================================
+# Initial author of this file: Martin.Vahi@softf1.com
+# This file is in public domain.
+# The following line is a spdx.org license label line:
+# SPDX-License-Identifier: 0BSD
+#
+# The way to reload the configuraton changes in this configuration file
+# is to use a terminal that can start GUI applications 
+# like the xeyes and run:
+#
+#     xrdb ~/.Xdefaults
+#
+#==========================================================================
+# The
+XTerm*selectToClipboard:true
+# is needed for the XTerm to have a proper copy-paste functionality.
+
+#--------------------------------------------------------------------------
+# S_VERSION_OF_THIS_FILE="daab66e5-99eb-4d95-b54f-90f1614127e7"
+#==========================================================================

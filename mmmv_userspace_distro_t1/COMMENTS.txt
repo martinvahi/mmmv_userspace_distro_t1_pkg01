@@ -1,5 +1,5 @@
 ===========================================================================
-====  2022_11_13_mmmv_userspace_distro_t1_beta_01_crippled_version  =======
+====================  mmmv_userspace_distro_t1  ===========================
 ===========================================================================
 
 mmmv_userspace_distro_t1 is a set of code templates and 
@@ -16,27 +16,23 @@ The mmmv_userspace_distro_t1 is a way to name that set of
 loose components that can be used in concert.
 
 #--------------------------------------------------------------------------
-This is a crippled version of the 2022_11_13_mmmv_userspace_distro_t1_beta_01.
-Full version has a size of 9.5GiB and it MIGHT be downloadable from
+                Project Release Publication Locations
+#--------------------------------------------------------------------------
 
-    https://1fichier.com/dir/YGnlt3Gp
+Project home page:
 
-where the anti-bot password, FooBar923, must be typed in instead of copy-pasting it.
-The main things that are missing from the crippled version, are 
+    https://technology.softf1.com/mmmv_distrocomponents_t1/
 
-    x) GCC version 11.2.0 code and compilation script; 
+The 2023_06_10_mmmv_userspace_distro_t1_beta_01.
+has a size of about 14GiB and it MIGHT be downloadable from
 
-    x) Windows Subsystem for Linux (WSL) related components at 
-           ./mmmv_userspace_distro_t1/attic
+    https://1fichier.com/dir/NscKDygC
 
-    x) a clone of Martin Vahi's GitHub account
-           https://github.com/martinvahi
-       most notably, the clones of projects 
-       wappskafander_t2 and mmmv_notes;
+where the anti-bot password, FooBar977, must be typed in instead of copy-pasting it.
+Optionally available crippled versions:
 
-    x) local copy of Maven modules, which usually reside at
-          $HOME/.m2
-       (Maven is a GNU Make analogue for Java projects.)
+    https://github.com/martinvahi/mmmv_userspace_distro_t1
+    https://sourceforge.net/projects/mmmv_userspace_distro_t1/
 
 #--------------------------------------------------------------------------
                          Setup Introduction
@@ -51,5 +47,5 @@ Further information about the setup resides at
     ./mmmv_userspace_distro_t1/COMMENTS.txt
 
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="12b6ac8b-21e3-4c5f-b423-92c11101b6e7"
+S_VERSION_OF_THIS_FILE="22992d2a-8b0f-4284-b56f-a100301167e7"
 #==========================================================================

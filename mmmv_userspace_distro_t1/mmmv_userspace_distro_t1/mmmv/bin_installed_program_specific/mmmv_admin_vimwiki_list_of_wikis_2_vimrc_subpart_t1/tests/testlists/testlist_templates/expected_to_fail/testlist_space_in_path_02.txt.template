@@ -1,0 +1,6 @@
+
+# The following line should cause failure due to a space in the path.
+   /tmp/what /ever/Foo/testwiki_01/ # sholud not exist
+# The spaces at the start of the line, which are allowed, 
+# should not prevent this path from being seen as invalid.
+

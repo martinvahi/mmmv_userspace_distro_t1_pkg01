@@ -11,8 +11,6 @@
 #
 # The following line is a spdx.org license label line:
 # SPDX-License-Identifier: 0BSD
-#
-# S_VERSION_OF_THIS_FILE="18637804-7d99-497a-9803-0200a08185e7"
 #==========================================================================
 #:::::::::::::::::::::::SSH_Minitutorial::start::::::::::::::::::::::::::::
 # 
@@ -33,6 +31,14 @@
 # the SSH dependent tool called sshfs allows a Linux machine 
 # to see a file system of a remote machine as if the remote machine 
 # were an USB memory stick that is connected to a local machine.
+#
+# As of 2023_05 one of the Windows_10 tools that is 
+# similar to the Linux sshfs, is the closed source 
+#
+#     (As of 2023_05 they have a 1-user-one-SSH-connection 
+#     free-of-charge commercial use license for the "starter version",
+#     but the catch is that they spam with adverts for their paid version.)
+#     https://www.nsoftware.com/sftpdrive
 # 
 # 
 # SSH Components
@@ -113,7 +119,7 @@
 # then the server will "hang up", sever the connection, till next login.
 # Some other possible /etc/ssh/sshd_config lines:
 #
-#     # INCOMPLETE/POOLELI: test the configuration in this example.
+#     # INCOMPLETE: test the configuration in this example.
 #     Port 22
 #     #
 #     # The following 2 lines
@@ -310,7 +316,10 @@
 #     http://cvs.savannah.gnu.org/viewvc/mc/mc/vfs/README.fish?view=markup
 #     archival copy: https://archive.vn/5AJMy
 #     optionally present local copy:
-#         /home/mmmv/mmmv_userspace_distro_t1/attic/documentation/third_party_documentation/SSH/FISH_protocol/2003_xx_xx_FISH_protocol_v_0_0_2_FIles_Transferred_over_SHell_keywords_SSH_FTP_SCP_SFTP.pdf
+#         $MMMV_USERSPACE_DISTRO_T1_HOME/attic/documentation/
+#             third_party_documentation/Linux_and_BSD_administration/SSH/
+#             FISH_protocol/
+#             2003_xx_xx_FISH_protocol_v_0_0_2_FIles_Transferred_over_SHell_keywords_SSH_FTP_SCP_SFTP.pdf
 #     
 # Android is Linux, but as of 2021 the default setting of Android
 # devices is that the main user of an Android device 
@@ -387,7 +396,10 @@
 #     https://docs-staging.kde.org/trunk5/en/kio-extras/kioslave5/fish/index.html
 #     archival copy: https://archive.vn/mGSjP
 #     optionally present local copy:
-#         /home/mmmv/mmmv_userspace_distro_t1/attic/documentation/third_party_documentation/SSH/FISH_protocol/2010_10_27_KDE_v_4_5_FISH_protocol_usage_minimanual_by_Jörg_Walter_and_Brad_Hards.pdf
+#         $MMMV_USERSPACE_DISTRO_T1_HOME/attic/documentation/
+#             third_party_documentation/Linux_and_BSD_administration/SSH/
+#             FISH_protocol/
+#             2010_10_27_KDE_v_4_5_FISH_protocol_usage_minimanual_by_Jörg_Walter_and_Brad_Hards.pdf
 #
 # Another desktop GUI application that has SSH support and that 
 # might be used for copying files to and from a computer that
@@ -424,7 +436,9 @@
 #     https://docs.kde.org/stable5/en/krusader/krusader/krusader.pdf 
 #     https://web.archive.org/web/20210828055719/https://docs.kde.org/stable5/en/krusader/krusader/krusader.pdf
 #     optionally present local copy:
-#         /home/mmmv/mmmv_userspace_distro_t1/attic/documentation/third_party_documentation/SSH/tutorials/2021_08_28_downloaded_Krusader_File_Manager_Handbook.pdf
+#         $MMMV_USERSPACE_DISTRO_T1_HOME/attic/documentation/
+#             third_party_documentation/Linux_and_BSD_administration/SSH/tutorials/
+#             2021_08_28_downloaded_Krusader_File_Manager_Handbook.pdf
 #
 # As of 2021 Windows10 users have the option to give the WinSCP a try:
 #
@@ -439,8 +453,7 @@
 #
 #     https://lftp.yar.ru/
 #
-# INCOMPLETE/POOLELI cover topics: unison, putty, rsync, sshfs
-# 
+# INCOMPLETE: cover topics: unison, putty, rsync, sshfs
 # 
 # SSH Related Troubleshooting: "Too many Authentication Failures"
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -513,7 +526,9 @@
 #     by Damien Miller
 #     https://www.nsc.liu.se/systems/ssh-tutorial.pdf
 #     2021_08_xx downloaded optionally present local copy:
-#         /home/mmmv/mmmv_userspace_distro_t1/attic/documentation/third_party_documentation/SSH/tutorials/2002_08_xx_AUUG_Winter_2002_SSH_Tutorial_by_Damien_Miller.pdf
+#         $MMMV_USERSPACE_DISTRO_T1_HOME/attic/documentation/
+#             third_party_documentation/Linux_and_BSD_administration/SSH/tutorials/
+#             2002_08_xx_AUUG_Winter_2002_SSH_Tutorial_by_Damien_Miller.pdf
 #
 #     "How to create a personal file server with SSH on Linux"
 #     https://opensource.com/article/20/3/personal-file-server-ssh
@@ -546,12 +561,19 @@ Host mydomain_com_alias_for_local_commandline_use
     # that the client sends to the server to 
     # probe, whether the connection to the server
     # exists. Unit is seconds.
-    ServerAliveInterval 29
+    ServerAliveInterval 32760 
  
     # Number of keep-alive-packets that are allowed to 
     # be without an answer before the connection is 
     # shut down.
-    ServerAliveCountMax 10   
+    ServerAliveCountMax 400
+
+    # It makes sense to set the ServerAliveInterval and ServerAliveCountMax 
+    # to some huge value, because sometimes
+    # servers do not answer even, when the SSH connection
+    # is alive. A project that aims to 
+    # automatically restart broken SSH pipes is the autossh
+    # https://www.harding.motd.ca/autossh/
 
     #::::::::::ssh_connection_multiplexing_configuration::start::::::::::::
     # https://www.tecmint.com/speed-up-ssh-connections-in-linux/
@@ -622,4 +644,6 @@ Host mydomain_com_alias_for_local_commandline_use
 
 #--------------------------------------------------------------------------
 #:::::::::::::::SSH_client_side_configuration::end:::::::::::::::::::::::::
+#--------------------------------------------------------------------------
+# S_VERSION_OF_THIS_FILE="7583b02c-7bcc-4317-ac15-f10211b157e7"
 #==========================================================================

@@ -1,6 +1,12 @@
 
 #----mmmv--machine--instance--specific--section--start---------------------
-
+S_TMP_0="$HOME/m_local/bin"
+if [ -e "$S_TMP_0" ]; then
+    if [ -d "$S_TMP_0" ]; then
+        export PATH="$S_TMP_0:$PATH"
+    fi
+fi
+#--------------------------------------------------------------------------
 if [ "$MMMV_USERSPACE_DISTRO_T1_HOME" == "" ]; then
     export MMMV_USERSPACE_DISTRO_T1_HOME="/home/mmmv/mmmv_userspace_distro_t1"
 fi
@@ -76,7 +82,7 @@ if [ "$SB_CONSOLE_OUTPUT_IS_ALLOWED" == "" ]; then
                                      # earlier in this file
 fi
 #--------------------------------------------------------------------------
-if [ "$SB_MMMV_USERSPACE_DISTRO_T1_COMMON_BASHRC_EXECUTION_ALMOST_COMPLETE" != "t" ]; then
+if [ "$SB_MMMV_USERSPACE_DISTRO_T1_FIRST_SESSION" != "f" ]; then # default: "" -> "t"
     #----------------------------------------------------------------------
     if [ "$SB_CONSOLE_IS_ACCESSED_OVER_SSH" == "t" ]; then
         SB_CONSOLE_OUTPUT_IS_ALLOWED="f"
@@ -92,23 +98,23 @@ if [ "$SB_MMMV_USERSPACE_DISTRO_T1_COMMON_BASHRC_EXECUTION_ALMOST_COMPLETE" != "
     #----------------------------------------------------------------------
     if [ "$SB_CONSOLE_OUTPUT_IS_ALLOWED" == "t" ]; then
         #------------------------------------------------------------------
-        if [ "$SB_MMMV_USERSPACE_DISTRO_T1_COMMON_BASHRC_EXECUTION_ALMOST_COMPLETE" != "" ]; then
-            if [ "$SB_MMMV_USERSPACE_DISTRO_T1_COMMON_BASHRC_EXECUTION_ALMOST_COMPLETE" != "f" ]; then
-                echo ""
-                echo "The environment variable "
-                echo ""
-                echo "    SB_MMMV_USERSPACE_DISTRO_T1_COMMON_BASHRC_EXECUTION_ALMOST_COMPLETE==$SB_MMMV_USERSPACE_DISTRO_T1_COMMON_BASHRC_EXECUTION_ALMOST_COMPLETE"
-                echo ""
-                echo "but its domain is: {\"\", \"t\", \"f\"}."
-                echo "GUID=='354d2a14-01ac-447b-873d-024071d0a6e7'"
-                echo ""
+        if [ "$SB_MMMV_USERSPACE_DISTRO_T1_FIRST_SESSION" != "f" ]; then
+            if [ "$SB_MMMV_USERSPACE_DISTRO_T1_FIRST_SESSION" != "" ]; then
+                if [ "$SB_MMMV_USERSPACE_DISTRO_T1_FIRST_SESSION" != "t" ]; then
+                    echo ""
+                    echo "The environment variable "
+                    echo ""
+                    echo "    SB_MMMV_USERSPACE_DISTRO_T1_FIRST_SESSION==$SB_MMMV_USERSPACE_DISTRO_T1_FIRST_SESSION"
+                    echo ""
+                    echo "but its domain is: {\"\", \"t\", \"f\"}."
+                    echo "GUID=='50815cc2-0319-475d-ab53-436371a017e7'"
+                    echo ""
+                fi
             fi
         fi
         #------------------------------------------------------------------
     fi
     #----------------------------------------------------------------------
 fi
-#--------------------------------------------------------------------------
-
 #----mmmv--machine--instance--specific--section--end-----------------------
 

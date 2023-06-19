@@ -6,7 +6,7 @@ most of the functionality has been retained. Further details are at
 
     ./mmmv_userspace_distro_t1/COMMENTS.txt
 
-The planned release cycle of this project is about 3 years.
+The planned release cycle of this project is about 2 years.
 
 Thank You for studying this project.
 
