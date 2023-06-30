@@ -138,13 +138,16 @@ echo "    echo -e \"Some text with default colour\\e[31m this text is red\\e[32m
 echo -e "\e[39m"
 echo ""
 echo "People, who know, how to use the GNU sed, might find "
-echo "the following Bash code sample useful:"
+echo "the following Bash code samples useful:"
 echo -e "\e[36m"
 echo "    echo -e \"text_\\e[31mtext_red_\\e[32mtext_green_\\e[34mtext_blue_\\e[39mtext_default_color\"  | sed -e 's/text/Foo/g' | sed -e 's/green_Foo/colorlabel_lost/g'"
 echo "    # The 2. sed call won't replace anything, because "
 echo "    # the regex does not match the color label between the "
 echo "    # \"green_\" and \"Foo\" like it does at the version without color labels:"
 echo "    echo -e \"text_text_red_text_green_text_blue_text_default_color\"  | sed -e 's/text/Foo/g' | sed -e 's/green_Foo/colorlabel_lost/g'"
+echo ""
+echo "    # The next line uses the GNU sed to color all \"b\" characters green."
+echo "    echo \"aaabbbcccc\" | sed -e 's/b/\x1b[32mb\x1b[39m/g' "
 echo ""
 echo -e "\e[39m"
 echo "Color labels do get saved to file, if the stdout is redirected to a file."
@@ -264,11 +267,17 @@ echo -e "    Switch-on string \"<backslash>e[\e[107;30m107\e[0mm\" \e[107;30m Wh
 echo -e ""
 echo -e "Combining multiple attributes:"
 echo -e "    Switch-on string \"<backslash>e[1;4;36m\"\e[1;4;94m Bold and Underlined\e[0m Switch-off string \"<backslash>e[0m\""
-echo -e ""
-echo -e "Some default text again for testimg."
-echo -e ""
+echo ""
+#--------------------------------------------------------------------------
+S_FN_0="mmmv_ls_doc_Bash_color_table_t1.bash" 
+if [ "`which $S_FN_0 2> /dev/null`" != "" ]; then
+    echo "A table with color combination samples can be viewed by executing "
+    echo -e "\e[36m"
+    echo "    $S_FN_0"
+    echo -e "\e[39m"
+fi
 #--------------------------------------------------------------------------
 exit 0 
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="5c91c01b-230a-4525-b570-a07171b167e7"
+# S_VERSION_OF_THIS_FILE="01e37a27-223a-4605-b37e-d082b0e167e7"
 #==========================================================================
