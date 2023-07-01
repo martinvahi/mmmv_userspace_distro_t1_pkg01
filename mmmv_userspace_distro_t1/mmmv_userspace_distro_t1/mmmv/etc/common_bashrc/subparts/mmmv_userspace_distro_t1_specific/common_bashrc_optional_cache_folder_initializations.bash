@@ -18,7 +18,7 @@ if [ "$MMMV_USERSPACE_DISTRO_T1_BASHRC_PREFIX_LOAD_MODE_T1" != "mode_ok_to_load"
         echo ""
     fi
     echo "Exiting with an error code $S_ERR_CODE ."
-    echo "GUID=='fae52e1b-a30e-440a-8308-d0d1514127e7'"
+    echo "GUID=='741660f3-dae6-437e-9c69-41e1c01077e7'"
     echo ""
     exit $S_ERR_CODE # exit with an error
 fi
@@ -31,7 +31,7 @@ else
     if [ "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT" != "f" ]; then
         echo ""
         echo "The Java build system called Maven is missing from the PATH."
-        echo "GUID=='6308c6af-6065-4726-a108-d0d1514127e7'"
+        echo "GUID=='ca954117-e8b3-4cfc-b369-41e1c01077e7'"
         echo ""
     fi
 fi
@@ -41,14 +41,9 @@ if [ "$SB_MAVEN_EXISTS_ON_PATH" == "t" ]; then
     S_FP_MMMV_DOT_M2="/home/mmmv/.m2"
     S_FP_HOME_DOT_M2="$HOME/.m2"
     #----------------------------------------------------------------------
-    if [ "$SB_OPERATINGSYSTEM_LINUX_ANDROID_TERMUX" == "f" ]; then
-        func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
-            "$S_FP_MMMV_DOT_M2" "e4db6439-7390-419a-a208-d0d1514127e7" \
-            "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
-    fi
     if [ "$M2" != "" ]; then
         func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
-            "$M2" "30dc0904-b319-426f-bd08-d0d1514127e7" \
+            "$M2" "37c8ec3d-73fb-4959-9369-41e1c01077e7" \
             "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
     fi
     #----------------------------------------------------------------------
@@ -56,47 +51,34 @@ if [ "$SB_MAVEN_EXISTS_ON_PATH" == "t" ]; then
         if [ -e "$S_FP_HOME_DOT_M2" ]; then
             # Just to check that it is a folder and not a file.
             func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
-                "$S_FP_HOME_DOT_M2" "0a008926-b07a-4ee6-8308-d0d1514127e7" \
+                "$S_FP_HOME_DOT_M2" "edfcca26-c6ba-4b21-a169-41e1c01077e7" \
                 "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
         else # we try to copy it to create a seed version of it
-            if [ -h "$S_FP_HOME_DOT_M2" ]; then
-                # The existence check , the "if [ -e .....", fails  with broken symlinks.
-                # The existence check , the "if [ -h .....", fails  with nonexisting symlinks.
-                # The existence check , the "if [ -h .....", passes with broken symlinks.
-                #
-                # A test-script MIGHT be abailable at
-                #     https://sourceforge.net/p/mmmv-notes/code/ci/master/tree/mmmv_notes/programming_language_tests/Bash_language_tests/lang_test_Bash_symlinks_and_hardlinks_t1.bash
-                #
-                #     archival copy: https://archive.is/wip/snoZQ
-                #
-                #     archive.org copy:
-                #     https://web.archive.org/web/20200302185848/https://sourceforge.net/p/mmmv-notes/code/ci/master/tree/mmmv_notes/programming_language_tests/Bash_language_tests/lang_test_Bash_symlinks_and_hardlinks_t1.bash
-                #
+            func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
+                "$S_FP_MMMV_DOT_M2" "f073b319-c969-4e75-9169-41e1c01077e7" \
+                "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
+            if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
                 if [ "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT" != "f" ]; then
                     echo ""
-                    echo "The $S_FP_HOME_DOT_M2 is a broken symlink." 
-                    echo "GUID=='f7e9707e-3d4a-4e96-8108-d0d1514127e7'"
+                    echo ""
+                    echo -e "Attempting to initialize the\e[33m Maven build system\e[39m related "
+                    echo -e "\e[33m    $S_FP_HOME_DOT_M2 \e[39m"
+                    echo "by copying files there .."
+                fi
+                    nice -n 2 cp -f -R "$S_FP_MMMV_DOT_M2" "$S_FP_HOME_DOT_M2"
+                    S_TMP_0="$?"
+                    func_mmmv_wait_and_sync_t1
+                if [ "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT" != "f" ]; then
+                    echo ".. done copying files."
+                    if [ "$S_TMP_0" != 0 ]; then
+                        echo -e \e[31m"The cp exited with an error code of $S_TMP_0 \e[39m"
+                    fi
+                    echo "GUID=='2286f392-eed1-4c6a-b469-41e1c01077e7'"
                     echo ""
                 fi
-            else 
-                if [ -e "$S_FP_MMMV_DOT_M2" ]; then
-                    if [ -d "$S_FP_MMMV_DOT_M2" ]; then
-                        if [ "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT" != "f" ]; then
-                            echo ""
-                            echo "Attempting to initialize the Maven build system related ~/.m2 .. "
-                            echo "GUID=='90b9113e-0cf4-41fd-b308-d0d1514127e7'"
-                        fi
-                            cp -f -R "$S_FP_MMMV_DOT_M2" "$S_FP_HOME_DOT_M2"
-                            func_mmmv_wait_and_sync_t1
-                        if [ "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT" != "f" ]; then
-                            echo ".. done attempting to initialize the ~/.m2 ."
-                            echo ""
-                        fi
-                        func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
-                            "$S_FP_HOME_DOT_M2" "14b89e52-d031-4ae4-b408-d0d1514127e7" \
-                            "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
-                    fi
-                fi
+                func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
+                    "$S_FP_HOME_DOT_M2" "4fea034e-e766-4ff3-b369-41e1c01077e7" \
+                    "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
             fi
         fi
     fi
@@ -116,7 +98,7 @@ else # Maven not on PATH
             echo "    M2 != \"\" ==$M2"
             echo ""
             echo "is defined, but the Maven itself is not available on the PATH."
-            echo "GUID=='b88b0f52-f8d1-4d77-9108-d0d1514127e7'"
+            echo "GUID=='38f84684-2754-4495-a569-41e1c01077e7'"
             echo ""
         fi
     fi
@@ -154,5 +136,5 @@ fi
 #     </settings>
 #     -----untested--citation--end-----------------------------------------
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="b95b0e46-ea06-4741-b108-d0d1514127e7"
+# S_VERSION_OF_THIS_FILE="03415348-8ad3-4c7e-8569-41e1c01077e7"
 #==========================================================================
