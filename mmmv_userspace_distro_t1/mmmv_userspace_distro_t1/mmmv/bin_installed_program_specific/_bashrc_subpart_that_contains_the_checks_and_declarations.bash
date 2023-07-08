@@ -27,7 +27,7 @@ if [ "$MMMV_USERSPACE_DISTRO_T1_BASHRC_PREFIX_LOAD_MODE_T1" != "mode_ok_to_load"
         echo ""
     fi
     echo -e "\e[31mExiting with an error code $S_ERR_CODE\e[39m ."
-    echo "GUID=='3ab159c4-ca99-4ac0-8452-b1a0a07157e7'"
+    echo "GUID=='b4d6e6ca-e954-433e-a11d-6180908077e7'"
     echo ""
     exit $S_ERR_CODE # exit with an error
 fi
@@ -35,11 +35,11 @@ fi
 MMMV_USERSPACE_DISTRO_T1_BIN_INSTALLED_PROGRAM_SPECIFIC="$MMMV_USERSPACE_DISTRO_T1_HOME/mmmv/bin_installed_program_specific"
 #--------------------------------------------------------------------------
 # func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
-#     "$MMMV_PARASAIL_HOME" "511d2743-7326-4927-a552-b1a0a07157e7"
+#     "$MMMV_PARASAIL_HOME" "3ad0bf10-edc4-4265-b21d-6180908077e7"
 # if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
 #     S_FP_CANDIDATE="$MMMV_PARASAIL_HOME/bin/pslc.csh"
 #     func_mmmv_verify_that_the_file_exists_but_do_not_exit_t1 \
-#         "$S_FP_CANDIDATE" "41a01181-da23-4de1-8252-b1a0a07157e7"
+#         "$S_FP_CANDIDATE" "4ec8bf3f-7d00-4368-a51d-6180908077e7"
 #     if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
 #         #Foo
 #     fi
@@ -97,7 +97,7 @@ if [ "$SB_PAR_TEXT_FORMATTER_EXISTS_ON_PATH" == "" ]; then
         export PARINIT="rTbgqR B=.,?_A_a Q=_s>|" # from the par man page
     else
         func_mmmv_userspace_distro_t1_err_msg_console_program_missing_t1 \
-            "par_text_formatter" "35575515-4f9b-45e2-a452-b1a0a07157e7"
+            "par_text_formatter" "44f0c0a4-9643-4776-a31d-6180908077e7"
     fi
 fi
 #--------------------------------------------------------------------------
@@ -110,5 +110,16 @@ if [ "$SB_PAR_TEXT_FORMATTER_EXISTS_ON_PATH" == "t" ]; then
     fi
 fi
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="54a2bc32-4ba7-4df3-b352-b1a0a07157e7"
+S_TMP_0="$MMMV_USERSPACE_DISTRO_T1_BIN_INSTALLED_PROGRAM_SPECIFIC/bc_date_grep_GNUsed_rev"
+if [ "$SB_SED_OR_GSED_EXISTS_ON_PATH" == "t" ]; then
+    if [ "$SB_BC_EXISTS_ON_PATH" == "t" ]; then
+        if [ "$SB_GREP_EXISTS_ON_PATH" == "t" ]; then
+            if [ "$SB_REV_EXISTS_ON_PATH" == "t" ]; then
+                export Z_PATH="$S_TMP_0/bin:$Z_PATH"
+            fi
+        fi
+    fi
+fi
+#--------------------------------------------------------------------------
+# S_VERSION_OF_THIS_FILE="f964e562-50d6-4bc1-a31d-6180908077e7"
 #==========================================================================
