@@ -1,9 +1,0 @@
-
-Home page:
-
-    http://www.squid-cache.org/
-
-Configuration instructions reside at 
-
-    <mmmv_userspace_distro_t1 home>/mmmv/etc/common_bashrc.txt
-

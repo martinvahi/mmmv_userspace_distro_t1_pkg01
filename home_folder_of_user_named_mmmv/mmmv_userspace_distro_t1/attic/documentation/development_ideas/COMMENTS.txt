@@ -1,0 +1,16 @@
+
+The documentation in this folder is mostly about future development ideas 
+of the mmmv_userspace_distro_t1. It may also include incomplete
+drafts of various documentation, including documentation of
+subprojects that do not have any code. The documentation in this folder 
+is public, but it's meant to be read only by the initial author 
+of the mmmv_userspace_distro_t1, Martin.Vahi@softf1.com, 
+so it is mostly in Estonian. 
+
+This whole folder should be deleted from deployment copies 
+of the mmmv_userspace_distro_t1. As You currently are 
+reading the content of this folder, then please do not
+bother to read the rest of the documentation in this folder.
+
+Thank You for reading this COMMENTS.txt
+

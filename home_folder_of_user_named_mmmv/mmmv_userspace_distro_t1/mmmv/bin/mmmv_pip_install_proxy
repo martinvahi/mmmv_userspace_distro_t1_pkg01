@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#==========================================================================
+# Initial author of this file: Martin.Vahi@softf1.com
+# This file is in public domain.
+# The following line is a spdx.org license label line:
+# SPDX-License-Identifier: 0BSD
+#--------------------------------------------------------------------------
+
+if [ "$MMMV_PROXY_URL" == "" ]; then
+    echo ""
+    echo "The environment varioable MMMV_PROXY_URL has not been set."
+    echo "GUID='02d5233d-4865-4639-a591-53f07130a7e7'"
+    echo ""
+    exit 1
+fi
+if [ "$PYTHONUSERBASE" == "" ]; then
+    echo ""
+    echo "The Python related environment varioable PYTHONUSERBASE "
+    echo "has not been set."
+    echo "GUID='18a485e3-3f34-477c-a591-53f07130a7e7'"
+    echo ""
+    exit 1
+else
+    #nice -n 5 pip3 --proxy $MMMV_PROXY_URL install --no-cache-dir  $1  --target=$PYTHONUSERBASE 
+    nice -n 5 pip --proxy $MMMV_PROXY_URL install --no-cache-dir  $1  --target=$PYTHONUSERBASE --upgrade 
+fi 
+
+#--------------------------------------------------------------------------
+# S_VERSION_OF_THIS_FILE="4fb7c062-cb0f-46c9-8391-53f07130a7e7"
+#==========================================================================

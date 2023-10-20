@@ -1,0 +1,13 @@
+
+
+= mmmv_userspace_distro_t1 arendusideede wiki =
+
+This wiki is public, but it's meant to be read only by
+the initial author of the mmmv_userspace_distro_t1, Martin.Vahi@softf1.com, 
+so it is mostly in Estonian. This wiki should be deleted from
+deployment copies of the mmmv_userspace_distro_t1.  This wiki is 
+mostly about future development ideas of the mmmv_userspace_distro_t1.
+Please ignore the existence of this wiki.
+
+* [[Paketikollektsiooni_idee_01]]
+
