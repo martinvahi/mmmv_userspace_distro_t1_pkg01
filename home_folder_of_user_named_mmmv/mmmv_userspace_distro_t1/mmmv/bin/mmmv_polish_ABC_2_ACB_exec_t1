@@ -45,7 +45,7 @@ if i_0!=3
    s_err<<"The "+s_2+"\e[31m requires exactly 3 arguments\e[39m.\n"
    s_err<<s_general_idea
    puts(s_err)
-   raise(Exception.new("GUID=='c568183f-d1bd-4760-9358-9220a0a167e7'\n"))
+   raise(Exception.new("GUID=='8eb5e372-8ae8-4368-a101-b2c00081a7e7'\n"))
    #---------------------------------------------------------
 end # if
 
@@ -60,14 +60,18 @@ s_cmd<<(ARGV[2].to_s)
 s_cmd<<(ARGV[1].to_s)
 s_cmd<<" "
 
+s_cmd_1="bash -c ' "+
+s_cmd.gsub(/[\\]/,'\\\\\\\\').gsub(/[']/,"\\\\'")+
+" ' "
 #printf(s_cmd)
 #puts(s_cmd)
-system(s_cmd)
+#system(s_cmd) # executes sh, not bash
+system(s_cmd_1)
 #--------------------------------------------------------------------------
 # A Bash testline:
 #
 #     ./mmmv_polish_ABC_2_ACB_exec_t1 " ls " " whoami " " ./ ;"
 #
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="1e12593f-92e4-4383-b158-9220a0a167e7"
+# S_VERSION_OF_THIS_FILE="848ac0a1-3b35-457b-9da3-b2c00081a7e7"
 #==========================================================================

@@ -49,7 +49,7 @@ if i_argv_len<1
    s_err<<"The "+s_2+"\e[31m requires at least 1 argument\e[39m.\n"
    s_err<<s_general_idea
    puts(s_err)
-   raise(Exception.new("GUID=='328a7055-0fbf-436b-b5e6-3343713017e7'\n"))
+   raise(Exception.new("GUID=='e0261451-24af-4920-a221-41f00081a7e7'\n"))
    #---------------------------------------------------------
 end # if
 
@@ -69,12 +69,16 @@ end # loop
 s_cmd<<s_argv_0
 s_cmd<<s_lc_space
 
+s_cmd_1="bash -c ' "+
+s_cmd.gsub(/[\\]/,'\\\\\\\\').gsub(/[']/,"\\\\'")+
+" ' "
 #printf(s_cmd)
 #puts(s_cmd)
-system(s_cmd)
+#system(s_cmd) # executes sh, not bash
+system(s_cmd_1)
 #--------------------------------------------------------------------------
 # Test line:
 #     ./mmmv_polish_ABC_2_B_C_A_exec_t1 "; whoami " "date ;" "pwd "
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="951dc91f-ccd4-427b-a4e6-3343713017e7"
+# S_VERSION_OF_THIS_FILE="0f6d7d10-7b64-4a28-9221-41f00081a7e7"
 #==========================================================================
