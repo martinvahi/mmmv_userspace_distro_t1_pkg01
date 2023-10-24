@@ -27,7 +27,7 @@ if [ "$MMMV_USERSPACE_DISTRO_T1_BASHRC_PREFIX_LOAD_MODE_T1" != "mode_ok_to_load"
         echo ""
     fi
     echo -e "\e[31mExiting with an error code $S_ERR_CODE\e[39m ."
-    echo "GUID=='187c0e32-f607-4feb-b1e5-f2a2f0e0a7e7'"
+    echo "GUID=='1f5302cd-0e46-4cf6-9452-13e01181a7e7'"
     echo ""
     exit $S_ERR_CODE # exit with an error
 fi
@@ -35,11 +35,11 @@ fi
 MMMV_USERSPACE_DISTRO_T1_BIN_INSTALLED_PROGRAM_SPECIFIC="$MMMV_USERSPACE_DISTRO_T1_HOME/mmmv/bin_installed_program_specific"
 #--------------------------------------------------------------------------
 # func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
-#     "$MMMV_PARASAIL_HOME" "d6a57f32-6dc7-4577-92e5-f2a2f0e0a7e7"
+#     "$MMMV_PARASAIL_HOME" "36dc6835-fe8f-4d40-8252-13e01181a7e7"
 # if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
 #     S_FP_CANDIDATE="$MMMV_PARASAIL_HOME/bin/pslc.csh"
 #     func_mmmv_verify_that_the_file_exists_but_do_not_exit_t1 \
-#         "$S_FP_CANDIDATE" "df42c830-cc41-4745-b2e5-f2a2f0e0a7e7"
+#         "$S_FP_CANDIDATE" "2222dde1-1a4e-4d23-a452-13e01181a7e7"
 #     if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
 #         #Foo
 #     fi
@@ -97,7 +97,7 @@ if [ "$SB_PAR_TEXT_FORMATTER_EXISTS_ON_PATH" == "" ]; then
         export PARINIT="rTbgqR B=.,?_A_a Q=_s>|" # from the par man page
     else
         func_mmmv_userspace_distro_t1_err_msg_console_program_missing_t1 \
-            "par_text_formatter" "1baa1172-f454-42fa-b3e5-f2a2f0e0a7e7"
+            "par_text_formatter" "2df6051a-4051-4b17-a252-13e01181a7e7"
     fi
 fi
 #--------------------------------------------------------------------------
@@ -126,5 +126,16 @@ if [ "$SB_SETXKBMAP_EXISTS_ON_PATH" == "t" ]; then
     export Z_PATH="$S_TMP_0/bin:$Z_PATH"
 fi
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="4aecf41d-8c7c-43f1-94e5-f2a2f0e0a7e7"
+if [ "$SB_QUTEBROWSER_EXISTS_ON_PATH" == "t" ]; then
+    S_TMP_0="$MMMV_USERSPACE_DISTRO_T1_HOME/mmmv/bin_installed_program_specific/qutebrowser_specific/bin"
+    func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
+        "$S_TMP_0" \
+        "6020e423-5058-476b-8252-13e01181a7e7" \
+        "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
+    if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
+        Z_PATH="$S_TMP_0:$Z_PATH"
+    fi
+fi
+#--------------------------------------------------------------------------
+# S_VERSION_OF_THIS_FILE="d33f7c1c-5f71-422a-9152-13e01181a7e7"
 #==========================================================================
