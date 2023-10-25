@@ -2411,6 +2411,26 @@ else
         "plzip" "5d03e4e2-6362-4410-be27-51117191a7e7"
 fi
 #--------------------
+SB_TARLZ_EXISTS_ON_PATH="f"
+if [ "`which tarlz 2> /dev/null`" != "" ]; then
+    SB_TARLZ_EXISTS_ON_PATH="t"
+    #----------------------------------------
+    # https://www.nongnu.org/lzip/lzip.html
+    # ----------citation----start-------------
+    # For creation and manipulation of
+    # compressed tar archives tarlz can be
+    # more efficient than using tar and plzip
+    # because tarlz is able to keep the
+    # alignment between tar members and lzip
+    # members.
+    # ----------citation----end---------------
+    # archival copy: https://archive.ph/Qe2Qo
+    #----------------------------------------
+else
+    func_mmmv_userspace_distro_t1_err_msg_console_program_missing_t1 \
+        "tarlz" "f3d6e611-510e-45fd-a4c8-73f17191a7e7"
+fi
+#--------------------
 SB_XZ_EXISTS_ON_PATH="f"
 if [ "`which xz 2> /dev/null`" != "" ]; then
     SB_XZ_EXISTS_ON_PATH="t"
