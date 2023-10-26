@@ -1,0 +1,20 @@
+
+The files in the 
+
+    ./upstream_originals
+
+have been downloaded on 2023_10_26 from
+
+    https://sourceforge.net/projects/rhash/files/rhash/1.4.4/
+
+The 
+
+    ./RHash-1.4.4.tar.lz
+
+has been obtained by unpacking the 
+
+    ./upstream_originals/rhash-1.4.4-src.tar.gz
+
+and then re-packing it to tar.lz to make the extentionless archive file name
+match with the folder name that the archive file contains.
+
