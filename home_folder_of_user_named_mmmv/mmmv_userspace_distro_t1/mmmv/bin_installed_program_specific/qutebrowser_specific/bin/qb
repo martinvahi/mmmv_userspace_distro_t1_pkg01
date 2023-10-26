@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #==========================================================================
 # initial idea: Florian Bruhin (The-Compiler)
 # author: Thore Bödecker (foxxx0)
@@ -25,5 +25,5 @@ printf '{"args": ["%s"], "target_arg": null, "version": "%s", "protocol_version"
        "${PWD}" | socat -lf /dev/null - UNIX-CONNECT:"${_ipc_socket}" || "$_qute_bin" "$@" &
 
 #--------------------------------------------------------------------------
-# S_VERSION_OF_THIS_FILE="4fc8e73d-2dee-474f-83d5-10510181a7e7"
+# S_VERSION_OF_THIS_FILE="55ad42d5-134d-4c74-9150-01a1a0a1a7e7"
 #==========================================================================
