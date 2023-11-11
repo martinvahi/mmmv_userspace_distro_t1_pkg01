@@ -5271,6 +5271,23 @@ if [ "$SB_OPERATINGSYSTEM_LINUX_ANDROID_TERMUX" == "t" ]; then
     #--------------------
 fi
 #--------------------------------------------------------------------------
+S_FP_0="$MMMV_USERSPACE_DISTRO_T1_HOME/mmmv/lib/templates"
+S_FP_1a="$S_FP_0/_bashrc_optional_extra_00.bash.template"
+S_FP_1b="$HOME/m_local/etc/_bashrc_optional_extra_00.bash"
+S_FP_2a="$S_FP_0/_bashrc_optional_extra_00_bash_subpart_01.rb.template"
+S_FP_2b="$HOME/m_local/etc/_bashrc_optional_extra_00_bash_subpart_01.rb"
+func_mmmv_verify_that_the_file_exists_but_do_not_exit_t1 \
+    "$S_FP_1a" "2ff9f525-4cc2-4be9-be2b-815190b0b7e7" \
+    "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
+if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
+    func_mmmv_verify_that_the_file_exists_but_do_not_exit_t1 \
+        "$S_FP_2a" "32abb052-fbca-487d-9d4b-815190b0b7e7" \
+        "$SB_DISPLAY_VERIFICATION_FAILURE_MESSAGE_DEFAULT"
+    if [ "$SB_VERIFICATION_FAILED" == "f" ]; then
+        alias mmmv_admin_cre_bashrc_optional_extra_00="if [ -e \"$S_FP_1b\" ]; then echo \"$S_FP_1b already exists\" ; else if [ -e \"$S_FP_2b\" ]; then echo \"$S_FP_2b already exists\" ; else cp $S_FP_1a $S_FP_1b ; cp $S_FP_2a $S_FP_2b ; sync ; wait ; fi fi "
+    fi
+fi
+#--------------------------------------------------------------------------
 export MMMV_USERSPACE_DISTRO_T1_LINUX_WSL="$MMMV_USERSPACE_DISTRO_T1_HOME/mmmv/operating_system_specific/Linux_WSL"
 func_mmmv_verify_that_the_folder_exists_but_do_not_exit_t1 \
     "$MMMV_USERSPACE_DISTRO_T1_LINUX_WSL" \
