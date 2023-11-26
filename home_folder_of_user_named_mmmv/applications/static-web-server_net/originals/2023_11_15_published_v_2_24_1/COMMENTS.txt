@@ -1,0 +1,22 @@
+
+It is written in Rust. After downloading the various dependencies
+and compiling this web server and its dependencies for AMD64 the 
+storage space consumption is about 350MiB. Home page:
+
+    https://static-web-server.net/download-and-install/#x86
+
+Files:
+
+    https://github.com/static-web-server/static-web-server/archive/refs/tags/v2.24.1.tar.gz    
+    ./upstream_originals/v2.24.1.tar.gz
+    Download date: 2023_11_25
+
+The 
+
+    ./static-web-server-2.24.1.tar.lz
+
+has been obtained by uncompressing and recompressing the 
+
+    ./upstream_originals/v2.24.1.tar.gz
+
+
