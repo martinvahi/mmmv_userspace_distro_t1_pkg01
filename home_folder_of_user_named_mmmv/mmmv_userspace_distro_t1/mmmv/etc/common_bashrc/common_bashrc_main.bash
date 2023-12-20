@@ -714,7 +714,7 @@ if [ -e "/usr/sbin" ]; then
     fi
 fi
 #--------------------------------------------------------------------------
-S_FP_0="$HOME/m_local/etc/_bashrc_optional_extra_00"
+S_FP_0="$HOME/m_local/etc/_bashrc_optional_extra_00.bash"
 SB_BASHRC_OPTIONAL_EXTRA_00_LOADED="f"
 if [ -e "$S_FP_0" ]; then
     if [ ! -d "$S_FP_0" ]; then
