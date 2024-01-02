@@ -1,0 +1,92 @@
+
+Political decisions, specially by Information Technology companies,
+do influence design decisions in terms of which components
+are chosen to be the dependencies of various projects.
+Therefore the history of business decisions and 
+ideological decisions of various companies and 
+state actors (leaderships of different states/supermafias)
+is part of a code comment that partly explains,
+why one technical solution has been chosen over
+some other technical solution.
+
+The issues related to various "intellectual property" "rights"
+(copyrights, patents) illustrates such cases 
+spectacularly well, specially in terms of life-hours
+destroyed/wasted. As of 2024_01_02 I(Martin.Vahi@softf1.com)
+claim that
+
+    N_sm --- life-hours destroyed by a serial murderer
+    N_murdered_humans --- number of humans murdered by a serial murderer
+    N_lifehours_destroyed_by_a_political_decision
+    N_su --- number of software users
+    N_sd --- number of software/hardware developers/engineers
+
+    N_sm = ~100years * (365 days/year ) * (24 hours/day) * 
+         * N_murdered_humans ~ 
+         ~ (N_murdered_humans * 876*10^3) life-hours
+
+    N_lifehours_destroyed_by_a_political_decision = 
+        =  (N_sud * 2_hours_minimum) + (N_sd * 5_years_minimum) >
+        >  (N_sud * 2) + (N_sd * 5*365*24) >=
+        >= (N_sud * 2) + (N_sd * 43*10^3)
+
+That is to say, in terms of life-hours destroyed, 
+serial murderers can be more innocent than 
+many corporate decisions, specially those
+corporate decisions that somehow limit the 
+reuse of design work that developers/engineers have done.
+
+Why not just legalize the sales of human organs
+combined with the kidnapping of the people, who 
+are killed/ripped_of_their_organs, if it's OK to 
+destroy/waste human life-hours in the name of 
+some corporate profit? Or accept organ sales,
+including such, where the "seller" dies, as
+monetary compensation of damages at court cases? 
+Surely many corporations can justify it with
+some explanation that this "creates value" and
+"helps the economy", specially if the people,
+who are killed, dismantled, are relatively poor 
+anyway and therefore do not spend much 
+on various goods and services.
+
+If that sounds too extreme, then how to explain
+the morality of business models that do not 
+work without the creation of various artificial 
+barriers? Another wording of this same question is:
+how to explain the morality of Copyright and
+Patents, if development work can be
+financed with business models that do not
+restrict the free, license wise unlimited,
+use of all knowledge and bitstreams of that
+development work? Specially in technical fields
+like hardware and software development?
+
+As of 2023_01_02 I(Martin.Vahi@softf1.com) I adhere
+to the requirements of the "intellectual property laws"
+out of social pressure, specially when it comes to
+my clients' projects, but in my own thoughts I think
+that life is hard enough even without artificial barriers
+to knowledge reuse and design work reuse and in my
+opinion a moral business model by my very subjective standards
+is such, where I help my clients to overcome
+natural barriers in stead of erecting a barrier
+myself and then charging for letting people 
+through/across that artificial barrier that I self 
+erected. For example, a shipping company that
+asks ticket money for conveying people/goods
+over a natural barrier is acting morally, but
+if somebody creates an artificial border somewhere
+and then starts to demand border crossing fees,
+then that I find to be immoral. As of 2023_01_02
+my policy is that my clients keep the copyrights
+of their project specific code, but my own
+projects, including the libraries that I use
+for developing software for my clients, is under
+BSD or MIT license or in public domain.
+That's how I avoid raising artificial
+barriers to knowledge reuse and/or to the reuse
+of design bitstreams.
+
+
+Thank You for reading this text.
