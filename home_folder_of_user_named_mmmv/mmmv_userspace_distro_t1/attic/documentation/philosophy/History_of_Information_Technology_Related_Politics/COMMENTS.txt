@@ -4,7 +4,7 @@ do influence design decisions in terms of which components
 are chosen to be the dependencies of various projects.
 Therefore the history of business decisions and 
 ideological decisions of various companies and 
-state actors (leaderships of different states/supermafias)
+state actors (leaderships of different states/super-mafias)
 is part of a code comment that partly explains,
 why one technical solution has been chosen over
 some other technical solution.
@@ -88,5 +88,20 @@ That's how I avoid raising artificial
 barriers to knowledge reuse and/or to the reuse
 of design bitstreams.
 
+What regards to competition, then for evolution
+and for motivating people to make an effort to
+give their best to get the job done at high 
+standards, COMPETITION IS ABSOLUTELY NECESSARY!
+However, competition in Love/business should be based on 
+pleasing the prospective sex_partner/client
+more than competitors do, not in terms of who 
+is more_capable/more_efficient at 
+physical violence or suing or otherwise
+restricting its competitors. Otherwise the 
+the "Chicago typewriter", or some more modern
+version of it, might be the right tool 
+for efficient competition.
+
 
 Thank You for reading this text.
+
