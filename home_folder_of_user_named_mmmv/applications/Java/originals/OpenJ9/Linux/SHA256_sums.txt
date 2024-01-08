@@ -1,0 +1,8 @@
+
+SHA256 sums:
+
+5e0f80052ac4613d2d689904b20ff8b6e2bbd1edd87271db0659a646a24dfeb6  ./ibm-semeru-open-jdk_aarch64_linux_17.0.1_12_openj9-0.29.1.tar.gz
+055e51b462fac3af198424ab41804959bf769274ebdffef9ac8bf036a9d73b95  ./ibm-semeru-open-jdk_aarch64_linux_8u312b07_openj9-0.29.0.tar.gz
+154f6411742ee1f8cbf004d72e7e71053b9ad4e89090cb930b6f16951e56503e  ./ibm-semeru-open-jdk_x64_linux_17.0.1_12_openj9-0.29.1.tar.gz
+c7306112201b45cc8b96e6d6fb3f6de727ddbbb51022cbd9cff98b661e37a510  ./ibm-semeru-open-jdk_x64_linux_8u312b07_openj9-0.29.0.tar.gz
+
