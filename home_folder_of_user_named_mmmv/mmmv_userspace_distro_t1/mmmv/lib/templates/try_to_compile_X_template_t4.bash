@@ -3914,6 +3914,8 @@ func_main(){
     func_mmmv_assert_file_exists_t1 "$S_FP_SRC" \
         "83218f71-8258-4ad4-9e4b-3233200118e7"
     $S_CMD_PREFIX_NICE cp -f $S_FP_SRC $S_FP_BUILD_FOLDER/
+    func_mmmv_assert_error_code_zero_t1 "$?" \
+        "672d7b0e-b415-41ee-b212-a71cce7153aa"
     func_mmmv_wait_and_sync_t1
     #------------------------------
     S_FP_PARENT_FOLDER="$S_FP_BUILD_FOLDER"
