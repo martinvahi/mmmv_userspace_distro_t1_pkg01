@@ -2571,32 +2571,77 @@ func_mmmv_ln_create_or_overwrite_symlink_t1() { # S_FP_TARGET  S_FP_LINK
     local S_FP_TARGET="$1"
     local S_FP_LINK="$2"
     #----------------------------------------------------------------------
-    local S_CMD_LN="ln -s $S_FP_TARGET $S_FP_LINK"
+    local S_CMD_LN="ln -s $S_FP_TARGET $S_FP_LINK "
+    local SB_DELETE_OLD_LINK="f"
     if [ -e "$S_FP_LINK" ]; then
+        if [ ! -h "$S_FP_LINK" ]; then # not a symlink
+            echo ""
+            echo "The "
+            echo ""
+            echo -e "\e[31m    $S_FP_LINK \e[39m"
+            echo ""
+            echo -e "is \e[31mnot a symlink \e[39m, but if that path is in use at all, "
+            echo "then only a symlink is allowed."
+            echo ""
+            echo "PWD==`pwd`"
+            echo "GUID=='418d45c1-7952-49f5-8321-6181a00118e7'"
+            echo ""
+            exit 1 # exit with an error
+        fi
+        # At this line the old S_FP_LINK is a nonbroken symlink.
         local S_FP_OLDTARGET="`readlink $S_FP_LINK`"
         if [ "$S_FP_OLDTARGET" != "$S_FP_TARGET" ]; then
-            rm -f $S_FP_LINK
-            func_mmmv_wait_and_sync_t1
-            $S_CMD_LN
-            func_mmmv_wait_and_sync_t1
+            # No need to wear Flash memory if the 
+            # new symlink name and target match with 
+            # the old symlink name and target.
+            SB_DELETE_OLD_LINK="t"
         fi
     else
-        $S_CMD_LN
-        func_mmmv_wait_and_sync_t1
+        if [ -h "$S_FP_LINK" ]; then # a broken symlink
+            SB_DELETE_OLD_LINK="t"
+        fi
     fi
+    #----------------------------------------------------------------------
+    if [ "$SB_DELETE_OLD_LINK" == "t" ]; then
+        rm -f $S_FP_LINK
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "fe273e2e-70d7-4cef-8c51-6181a00118e7"
+        func_mmmv_wait_and_sync_t1
+        if [ -e "$S_FP_LINK" ]; then
+            echo ""
+            echo ""
+            echo -e "\e[31mFailed to delete  \e[39m"
+            echo "an old symlink with the path of "
+            echo ""
+            echo -e "\e[36m    $S_FP_LINK \e[39m"
+            echo ""
+            echo "PWD==`pwd`"
+            echo "GUID=='91c70280-66ef-4dce-bd11-6181a00118e7'"
+            echo ""
+            echo ""
+            exit 1 # exit with an error
+        fi
+    fi
+    #----------------------------------------------------------------------
+    $S_CMD_LN
+    func_mmmv_assert_error_code_zero_t1 "$?" \
+        "17459945-8a9d-4d32-a441-6181a00118e7"
+    func_mmmv_wait_and_sync_t1
     if [ ! -e "$S_FP_LINK" ]; then
         echo ""
         echo ""
-        echo -e "\e[31mBash function execution failed.  \e[39m"
-        echo "Could not execute the command:"
-        echo "$S_CMD_LN"
+        echo -e "\e[31mSymlink creation failed.  \e[39m"
+        echo "Could not create a symlink with the path of:"
+        echo ""
+        echo -e "\e[36m    $S_CMD_LN \e[39m"
         echo ""
         echo "PWD==`pwd`"
-        echo "GUID=='11c3f894-6779-42e6-ac3d-3233200118e7'"
+        echo "GUID=='7b194781-e2ec-4b59-9521-6181a00118e7'"
         echo ""
         echo ""
         exit 1 # exit with an error
     fi
+    #----------------------------------------------------------------------
 } # func_mmmv_ln_create_or_overwrite_symlink_t1
 
 #--------------------------------------------------------------------------
