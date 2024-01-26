@@ -1,1 +1,6 @@
-../vader_includes/vader_teardown.vader
+After (Cleanup):
+  delfunction SetSyntax
+  delfunction ReloadVimwiki
+  delfunction DeleteHiddenBuffers
+  delfunction WriteMe
+  delfunction PrintCommand
