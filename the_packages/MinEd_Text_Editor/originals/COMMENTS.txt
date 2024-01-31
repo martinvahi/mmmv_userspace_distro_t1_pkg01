@@ -1,0 +1,133 @@
+#!/usr/bin/env bash 
+#==========================================================================
+S_FP_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+S_FP_ORIG="`pwd`"
+#==========================================================================
+# The .par2 files at the 
+#
+#     ./error_correction_files
+#
+# MIGHT become handy, when a storage device (HDD, SSD, etc.) 
+# has corrupted eihter the source file, the 
+# 
+#     ./2022_09_24_newest_MinEd_Text_Editor.tar.lz
+# 
+# or the script file, the
+# 
+#     ./try_to_compile_MinEd_Text_Editor_v2015_03_xx.bash
+# 
+# Error recovery example:
+
+    # Boilerplate.
+    func_mmmv_wait_and_sync_t1(){
+        wait # for background processes started by this Bash script to exit/finish
+        sync # network drives, USB-sticks, etc.
+        wait # for sync
+    } # func_mmmv_wait_and_sync_t1
+
+    # Boilerplate.
+    func_mmmv_assert_error_code_zero_t1(){
+        local S_ERR_CODE="$1" # the "$?"
+        local S_GUID_CANDIDATE="$2"
+        #----------------------------------------------------------------------
+        if [ "$S_GUID_CANDIDATE" == "" ]; then
+            echo ""
+            echo -e "\e[31mThe Bash code that calls this function is flawed. \e[39m"
+            echo ""
+            echo "    S_GUID_CANDIDATE==\"\""
+            echo ""
+            echo "but it is expected to be a GUID."
+            echo "Aborting script."
+            echo "GUID=='33c528cb-9a22-424d-8763-d083408118e7'"
+            echo "S_GUID_CANDIDATE=='$S_GUID_CANDIDATE'"
+            echo ""
+            #--------
+            cd "$S_FP_ORIG"
+            exit 1
+        fi
+        #------------------------------
+        # If the "$?" were evaluated in this function, 
+        # then it would be "0" even, if it is
+        # something else at the calling code.
+        if [ "$S_ERR_CODE" != "0" ];then
+            echo ""
+            echo "Something went wrong. Error code: $S_ERR_CODE"
+            echo -e "\e[31mAborting script. \e[39m"
+            echo "GUID=='fce30f56-ef37-45f1-bdc5-d083408118e7'"
+            echo "S_GUID_CANDIDATE=='$S_GUID_CANDIDATE'"
+            echo ""
+            #--------
+            cd "$S_FP_ORIG"
+            exit 1
+        fi
+        #------------------------------
+    } # func_mmmv_assert_error_code_zero_t1
+
+    # Boilerplate
+    func_mmmv_exit_if_not_on_path_t2b() { # S_COMMAND_NAME
+        local S_COMMAND_NAME="$1"
+        #----------------------------------------------------------------------
+        local S_LOCAL_VARIABLE="`which $S_COMMAND_NAME 2> /dev/null`"
+        if [ "$S_LOCAL_VARIABLE" == "" ]; then
+            echo ""
+            echo -e "\e[31mCommand \"$S_COMMAND_NAME\" could not be found from the PATH. \e[39m"
+            echo "The execution of this Bash script is aborted."
+            echo "GUID=='b31168cd-f8ae-4443-ac62-d083408118e7'"
+            echo ""
+            cd "$S_FP_ORIG"
+            exit 1;
+        fi
+    } # func_mmmv_exit_if_not_on_path_t2b
+
+
+    func_main(){
+        #------------------------------
+        func_mmmv_exit_if_not_on_path_t2b "par2"
+        #------------------------------
+        cd $S_FP_DIR
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "d14ccd56-8347-4115-8525-d083408118e7"
+        #------------------------------
+        # The par2 requires that the correctable file and the
+        # error correction code files (.par2 files) reside at the same folder.
+        cp -f ./error_correction_files/*.par2 ./  
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "130ce3f0-da92-426a-ac53-d083408118e7"
+        func_mmmv_wait_and_sync_t1
+        #------------------------------
+        # The error correction:
+        nice -n 4 par2 r \
+            ./2022_09_24_newest_MinEd_Text_Editor.tar.lz.vol000+64.par2 \
+            ./2022_09_24_newest_MinEd_Text_Editor.tar.lz 
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "e1e795d8-5559-41f7-8564-d083408118e7"
+        func_mmmv_wait_and_sync_t1 # should the next line crash
+        nice -n 4 par2 r \
+            ./try_to_compile_MinEd_Text_Editor_v2015_03_xx.bash.vol048+52.par2 \
+            ./try_to_compile_MinEd_Text_Editor_v2015_03_xx.bash
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "97637638-24dd-4631-a1b6-d083408118e7"
+        func_mmmv_wait_and_sync_t1
+        #------------------------------
+        rm -f $S_FP_DIR/*.par2
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "0b4fc7ef-55f5-4147-9abe-d083408118e7"
+        chmod 0755 $S_FP_DIR/*
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "740d6263-ca83-4472-ba32-d083408118e7"
+        func_mmmv_wait_and_sync_t1
+        #------------------------------
+    } # func_main
+    func_main
+
+#--------------------------------------------------------------------------
+cd "$S_FP_ORIG"
+exit 0
+#==========================================================================
+# Initial author of this file: Martin.Vahi@softf1.com
+# This file is in public domain.
+# The following line is a spdx.org license label line:
+# SPDX-License-Identifier: 0BSD
+#
+# S_VERSION_OF_THIS_FILE="8b1f8f0c-4dc9-443b-a465-d083408118e7"
+#==========================================================================

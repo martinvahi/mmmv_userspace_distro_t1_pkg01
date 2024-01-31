@@ -1,4 +1,0 @@
-
-# mmmv_userspace_distro_t1 specific_documentation
-/home/mmmv/mmmv_userspace_distro_t1/attic/documentation/application_specific_documentation/vimwiki/notes_set_01/in_vimwiki_format
-/home/mmmv/mmmv_userspace_distro_t1/attic/documentation/development_ideas/arendusideede_vimwiki

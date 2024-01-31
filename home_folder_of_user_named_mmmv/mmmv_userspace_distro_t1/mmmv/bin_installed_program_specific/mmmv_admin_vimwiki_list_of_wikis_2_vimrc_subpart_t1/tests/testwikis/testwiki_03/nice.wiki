@@ -1,3 +1,0 @@
-
-nice is a UNIX program.
-

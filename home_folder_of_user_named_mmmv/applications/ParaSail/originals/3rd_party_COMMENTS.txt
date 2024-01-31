@@ -1,7 +1,0 @@
-
-The main entry to the ParaSail binaries is the
-
-    ./<ParaSail home folder>/install/bin/pslc.csh
-
-and that depends on the csh and the tcsh.
-

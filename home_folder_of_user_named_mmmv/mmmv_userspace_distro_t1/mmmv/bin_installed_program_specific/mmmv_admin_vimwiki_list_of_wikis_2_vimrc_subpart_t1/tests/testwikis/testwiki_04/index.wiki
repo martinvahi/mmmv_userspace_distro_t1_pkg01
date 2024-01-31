@@ -1,5 +1,0 @@
-
-= Some Testwiki Header =
-
-This is the index [[page]] of a [[nice]] testwiki.
-

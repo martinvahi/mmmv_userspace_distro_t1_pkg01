@@ -1,0 +1,141 @@
+#!/usr/bin/env bash 
+#==========================================================================
+S_FP_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+S_FP_ORIG="`pwd`"
+#==========================================================================
+# On year 2024 Linux distributions that have been derived from 
+# the Debian Linux some of the dependencies of the Inkscape 
+# MIGHT be installed by root user by executing 
+#
+#     apt-get install libdouble-conversion-dev potrace libpotrace-dev \
+#         libpotrace0 libgtkmm-* libboost-*1.7* libgtksourceview-* \
+#         libxslt* libieee1284* libpoppler* poppler-data poppler-utils
+#
+# The .par2 files at the 
+# 
+#     ./error_correction_files
+# 
+# MIGHT be handy, if a storage device (HDD, SSD, etc.) 
+# has corrupted eihter the source file, the 
+# 
+#     ./inkscape-1.3_2023-07-21_0e150ed6c4.tar.lz
+# 
+# or the script file, the
+# 
+#     ./try_to_compile_Inkscape_v_1_3.bash
+# 
+# Error recovery example:
+
+    # Boilerplate.
+    func_mmmv_wait_and_sync_t1(){
+        wait # for background processes started by this Bash script to exit/finish
+        sync # network drives, USB-sticks, etc.
+        wait # for sync
+    } # func_mmmv_wait_and_sync_t1
+
+    # Boilerplate.
+    func_mmmv_assert_error_code_zero_t1(){
+        local S_ERR_CODE="$1" # the "$?"
+        local S_GUID_CANDIDATE="$2"
+        #----------------------------------------------------------------------
+        if [ "$S_GUID_CANDIDATE" == "" ]; then
+            echo ""
+            echo -e "\e[31mThe Bash code that calls this function is flawed. \e[39m"
+            echo ""
+            echo "    S_GUID_CANDIDATE==\"\""
+            echo ""
+            echo "but it is expected to be a GUID."
+            echo "Aborting script."
+            echo "GUID=='d5afa2d9-1b32-4dd0-b295-f1c2408118e7'"
+            echo "S_GUID_CANDIDATE=='$S_GUID_CANDIDATE'"
+            echo ""
+            #--------
+            cd "$S_FP_ORIG"
+            exit 1
+        fi
+        #------------------------------
+        # If the "$?" were evaluated in this function, 
+        # then it would be "0" even, if it is
+        # something else at the calling code.
+        if [ "$S_ERR_CODE" != "0" ];then
+            echo ""
+            echo "Something went wrong. Error code: $S_ERR_CODE"
+            echo -e "\e[31mAborting script. \e[39m"
+            echo "GUID=='7d870d2e-d75a-4ea6-8495-f1c2408118e7'"
+            echo "S_GUID_CANDIDATE=='$S_GUID_CANDIDATE'"
+            echo ""
+            #--------
+            cd "$S_FP_ORIG"
+            exit 1
+        fi
+        #------------------------------
+    } # func_mmmv_assert_error_code_zero_t1
+
+    # Boilerplate
+    func_mmmv_exit_if_not_on_path_t2b() { # S_COMMAND_NAME
+        local S_COMMAND_NAME="$1"
+        #----------------------------------------------------------------------
+        local S_LOCAL_VARIABLE="`which $S_COMMAND_NAME 2> /dev/null`"
+        if [ "$S_LOCAL_VARIABLE" == "" ]; then
+            echo ""
+            echo -e "\e[31mCommand \"$S_COMMAND_NAME\" could not be found from the PATH. \e[39m"
+            echo "The execution of this Bash script is aborted."
+            echo "GUID=='711e53af-6088-4f3b-a395-f1c2408118e7'"
+            echo ""
+            cd "$S_FP_ORIG"
+            exit 1;
+        fi
+    } # func_mmmv_exit_if_not_on_path_t2b
+
+
+    func_main(){
+        #------------------------------
+        func_mmmv_exit_if_not_on_path_t2b "par2"
+        #------------------------------
+        cd $S_FP_DIR
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "04c7ec33-2404-46f8-a295-f1c2408118e7"
+        #------------------------------
+        # The par2 requires that the correctable file and the
+        # error correction code files (.par2 files) reside at the same folder.
+        cp -f ./error_correction_files/*.par2 ./  
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "2d655867-dcf2-49eb-b495-f1c2408118e7"
+        func_mmmv_wait_and_sync_t1
+        #------------------------------
+        # The error correction:
+        nice -n 4 par2 r \
+            ./inkscape-1.3_2023-07-21_0e150ed6c4.tar.lz.vol048+52.par2 \
+            ./inkscape-1.3_2023-07-21_0e150ed6c4.tar.lz
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "38e3d887-26a9-49fc-8295-f1c2408118e7"
+        func_mmmv_wait_and_sync_t1 # should the next line crash
+        nice -n 4 par2 r \
+            ./try_to_compile_Inkscape_v_1_3.bash.vol48+48.par2 \
+            ./try_to_compile_Inkscape_v_1_3.bash
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "070cfd11-27d3-49fc-a395-f1c2408118e7"
+        func_mmmv_wait_and_sync_t1
+        #------------------------------
+        rm -f $S_FP_DIR/*.par2
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "9e64f313-902a-45ea-b495-f1c2408118e7"
+        chmod 0755 $S_FP_DIR/*
+        func_mmmv_assert_error_code_zero_t1 "$?" \
+            "3d8bd830-005b-4882-8395-f1c2408118e7"
+        func_mmmv_wait_and_sync_t1
+        #------------------------------
+    } # func_main
+    func_main
+
+#--------------------------------------------------------------------------
+cd "$S_FP_ORIG"
+exit 0
+#==========================================================================
+# Initial author of this file: Martin.Vahi@softf1.com
+# This file is in public domain.
+# The following line is a spdx.org license label line:
+# SPDX-License-Identifier: 0BSD
+#
+# S_VERSION_OF_THIS_FILE="2ba216d2-1f52-4c77-a295-f1c2408118e7"
+#==========================================================================

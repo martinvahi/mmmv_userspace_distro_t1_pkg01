@@ -1,8 +1,0 @@
-
-Author: Slawomir Wojciech Wojtczak 
-Publishing page:
-
-    https://forums.freebsd.org/threads/lsblk-8-command-for-freebsd.56008/
-
-License: BSD
-

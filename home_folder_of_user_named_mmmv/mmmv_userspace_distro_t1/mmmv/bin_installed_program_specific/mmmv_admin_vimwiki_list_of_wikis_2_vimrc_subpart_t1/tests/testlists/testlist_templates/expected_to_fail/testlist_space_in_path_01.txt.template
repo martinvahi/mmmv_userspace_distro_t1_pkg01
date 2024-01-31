@@ -1,2 +1,0 @@
-# The following line should fail due to a space in the path.
-/tmp/what /ever/Foo/testwiki_01/ # sholud not exist

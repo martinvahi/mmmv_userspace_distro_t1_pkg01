@@ -1,4 +1,0 @@
-# For security reasons the construct like "../" is not allowed
-# in wiki page path, but multiple side by side dots like ".."
-# should be allowed in comments.
-S_FP_TESTWIKIS/testwiki_02/  # to avoid an error that no wiki paths are found from this file

@@ -1,9 +1,0 @@
-
-The 
-
-    ./ncdu-1.19.tar.gz
-
-has been downloaded on 2023_10_14 from
-
-    https://dev.yorhel.nl/download/ncdu-1.19.tar.gz
-

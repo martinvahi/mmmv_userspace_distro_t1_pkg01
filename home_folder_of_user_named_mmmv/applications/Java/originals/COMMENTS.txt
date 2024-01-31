@@ -1,7 +1,0 @@
-
-On Windows it is possible to use the Windows Linux layer,
-the "Windows Subsystem for Linux" (WSL), which 
-can/may/might (depending on, what Microsoft decides) 
-access the Windows side of the file system through "/mnt/drivename"
-
-

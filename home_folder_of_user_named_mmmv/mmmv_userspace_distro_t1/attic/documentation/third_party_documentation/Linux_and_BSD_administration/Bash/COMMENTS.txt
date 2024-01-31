@@ -1,7 +1,0 @@
-
-Files and their download information:
-
-    ./2023_06_23_wget_copy_of_GNU_Bash_manual.html
-    https://www.gnu.org/software/bash/manual/bash.html
-    download date: 2023_06_23
-

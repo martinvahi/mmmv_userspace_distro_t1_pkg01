@@ -1,0 +1,34 @@
+===========================================================================
+=================  mmmv_userspace_distro_t1_pkg01  ========================
+===========================================================================
+
+...is an optional add-on sub-project of the mmmv_userspace_distro_t1
+
+    (As of 2024_01 the SourceForge and GitHub 
+    mmmv_userspace_distro_t1 repositories mirror each other.)
+    https://sourceforge.net/projects/mmmv-userspace-distro-t1/
+    https://github.com/martinvahi/mmmv_userspace_distro_t1
+
+The content of the 
+
+    ./the_packages
+
+might as well be all copied to the "applications" folder of the 
+mmmv_userspace_distro_t1, but then the repositories of the
+mmmv_userspace_distro_t1 at SourceForge and GitHub would
+go slightly "too big", hence the existence of the 
+mmmv_userspace_distro_t1_package_set_01 . 
+
+
+---------------------------------------------------------------------------
+                    About the Name of this Project
+---------------------------------------------------------------------------
+
+Initially its name was "mmmv_userspace_distro_t1_package_set_01", but
+due to the 30 character limit of SourceForge project names it was
+changed to the "mmmv_userspace_distro_t1_pkg01"
+
+
+===========================================================================
+S_VERSION_OF_THIS_FILE="410574ea-3d62-433e-84cc-4213207118e7"
+===========================================================================

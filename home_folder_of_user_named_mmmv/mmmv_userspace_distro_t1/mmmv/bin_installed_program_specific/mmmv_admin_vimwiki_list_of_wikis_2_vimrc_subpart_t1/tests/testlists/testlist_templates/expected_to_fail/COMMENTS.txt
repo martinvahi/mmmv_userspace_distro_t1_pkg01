@@ -1,7 +1,0 @@
-
-In testing mode a first occurrence of a nonconformance at a
-list of wikis causes an exit with nonzero error code.
-Therefore, nonconformance examples that reside
-at some line after the first nonconformance example,
-do not tested. That is to say, each file in this folder 
-is expected to contain exactly one nonconformance example.
