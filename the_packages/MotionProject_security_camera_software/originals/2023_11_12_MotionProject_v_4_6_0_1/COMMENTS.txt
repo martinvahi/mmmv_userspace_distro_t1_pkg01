@@ -1,0 +1,32 @@
+
+File origin information:
+
+    ./upstream_originals/release-4.6.0.tar.gz
+    https://github.com/Motion-Project/motion/archive/refs/tags/release-4.6.0.tar.gz
+    https://motion-project.github.io/
+    Download date: 2024_05_12
+
+The 
+
+    ./2023_11_12_MotionProject_v_4_6_0_1.tar.gz
+
+has been obtained by upacking the 
+
+    ./upstream_originals/release-4.6.0.tar.gz
+
+and then renaming the unpacked folder and repacking the 
+folder that has the new name. A configuration file can be
+created by 
+
+    cp <installation folder>/etc/motion/motion-dist.conf  ./motion.conf
+
+Live image from camera can be seen by a "stream", which can be viewed
+with year 2024 era mainstream web browsers like Chromium/Chrome
+from an URL like:
+
+    # Exact parameters of it are set at the 
+    # configuration file, the "motion.conf".
+    http://localhost:8082/
+
+Videos and snapshots are saved to working directory.
+
