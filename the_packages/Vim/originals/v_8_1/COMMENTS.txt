@@ -1,0 +1,14 @@
+
+File origins:
+
+    ./vim-8.1.tar.bz2
+    ftp://ftp.vim.org/pub/vim/unix/vim-8.1.tar.bz2
+    https://www.vim.org/sources.php
+    Download date: 2024_06_01
+
+    ./vim-8.1.tar.gz
+    has been obtained by unpacking the 
+    ./vim-8.1.tar.bz2
+    and renaming a folder and then repacking
+    the renamed folder.
+

@@ -13,11 +13,25 @@ The content of the
 
     ./the_packages
 
-might as well be all copied to the "applications" folder of the 
-mmmv_userspace_distro_t1, but then the repositories of the
-mmmv_userspace_distro_t1 at SourceForge and GitHub would
-go slightly "too big", hence the existence of the 
-mmmv_userspace_distro_t1_package_set_01 . 
+might as well be all copied to the "applications" folder of
+the mmmv_userspace_distro_t1, but then the repositories of the
+mmmv_userspace_distro_t1 at SourceForge and GitHub would go slightly
+"too big", hence the existence of the mmmv_userspace_distro_t1_pkg01.
+
+
+---------------------------------------------------------------------------
+                                 WARNING
+---------------------------------------------------------------------------
+
+The upstream source code at 
+
+    ./the_packages
+
+HAS _NOT_ BEEN AUDITED by me(Martin.Vahi@softf1.com), nor do I exactly
+know, what its build-time or run-time dependencies are. It's all on a
+best effort bases. A partial dependence graph MIGHT be available at the
+
+    <project mmmv_userspace_distro_t1 applications folder>/doc_incomplete_dependence_graph
 
 
 ---------------------------------------------------------------------------
@@ -30,5 +44,5 @@ changed to the "mmmv_userspace_distro_t1_pkg01"
 
 
 ===========================================================================
-S_VERSION_OF_THIS_FILE="410574ea-3d62-433e-84cc-4213207118e7"
+S_VERSION_OF_THIS_FILE="fb1bd8b3-d94c-4b73-9d4c-0083506168e7"
 ===========================================================================
