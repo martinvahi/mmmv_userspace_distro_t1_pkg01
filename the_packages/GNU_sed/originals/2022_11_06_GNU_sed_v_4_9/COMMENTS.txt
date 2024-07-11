@@ -1,0 +1,26 @@
+
+The only purpose of repackaging the GNU sed for the
+mmmv_userspace_distro_t1 applications collection is to allow the use
+of the GNU sed binary that has been compiled so that all CPU specific
+compiler optimisations have been enabled. The GNU sed is so frequently
+used program that it makes sense to really take advantage of all of the
+hard work that CPU engineers and compiler backend developers have put
+into their masterpieces. If not for speed, then just for saving some
+electricity, possibly battery life :-)
+
+From dependency graph point of view this whole package, the repackaging
+of the GNU sed, is a total oxymoron. Even the
+
+    ./try_to_compile_GNU_sed_v_4_9_by_using_tautological.bash
+
+depends on GNU sed, which is expected to be installed from operating system
+package collection. File origin info:
+
+    ./sed-4.9.tar.xz
+    https://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz
+    Download date: 2024_07_11
+
+    ./sed-4.9.tar.xz.sig
+    https://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz.sig
+    Download date: 2024_07_11
+
