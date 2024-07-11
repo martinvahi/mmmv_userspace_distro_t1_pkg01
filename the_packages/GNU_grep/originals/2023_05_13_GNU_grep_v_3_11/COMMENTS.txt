@@ -1,0 +1,26 @@
+
+The only purpose of repackaging the GNU grep for the
+mmmv_userspace_distro_t1 applications collection is to allow the use
+of the GNU grep binary that has been compiled so that all CPU specific
+compiler optimisations have been enabled. The GNU grep is so frequently
+program that it makes sense to really take advantage of all of the
+hard work that CPU engineers and compiler backend developers have put
+into their masterpieces. If not for speed, then just for saving some
+electricity, possibly battery life :-)
+
+From dependency graph point of view this whole package, the repackaging
+of the GNU grep, is a total oxymoron. Even the
+
+    ./try_to_compile_GNU_grep_v_3_11.bash
+
+depends on grep, which is expected to be installed from operating system
+package collection. File origin info:
+
+    ./grep-3.11.tar.xz
+    https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz
+    Download date: 2024_07_11
+
+    ./grep-3.11.tar.xz.sig
+    https://ftp.gnu.org/gnu/grep/grep-3.11.tar.xz.sig
+    Download date: 2024_07_11
+
