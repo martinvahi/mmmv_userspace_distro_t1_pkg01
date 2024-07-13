@@ -1,0 +1,28 @@
+
+The 
+
+    ./clucene-code-e8e3d20f20da5ee3e37d347207b01890829a5475.zip
+    https://sourceforge.net/code-snapshots/git/c/cl/clucene/code.git/clucene-code-e8e3d20f20da5ee3e37d347207b01890829a5475.zip
+    https://sourceforge.net/projects/clucene/
+    Download date: 2024_07_13
+
+The 
+
+    ./2013_08_12_lib_CLucene.tar.gz
+
+has been obtained by unpacking the 
+
+    ./clucene-code-e8e3d20f20da5ee3e37d347207b01890829a5475.zip
+
+renaming the folder
+"clucene-code-e8e3d20f20da5ee3e37d347207b01890829a5475" to
+"2013_08_12_lib_CLucene" and then adding the following 3 lines 
+
+    //----downstream--branch--specific--additions--start----
+    #include <ctime>
+    //----downstream--branch--specific--additions--end------
+
+to the 
+
+    /2013_08_12_CLucene/src/core/CLucene/StdHeader.h
+
