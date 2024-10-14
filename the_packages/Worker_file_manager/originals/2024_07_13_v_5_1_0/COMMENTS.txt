@@ -1,0 +1,21 @@
+
+Project home page:
+
+    http://www.boomerangsworld.de/cms/worker/index.html
+
+
+File origins:
+
+    ./worker-5.1.0.tar.gz
+    http://www.boomerangsworld.de/cms/worker/downloads/worker-5.1.0.tar.gz
+    http://www.boomerangsworld.de/cms/worker/download.html
+    http://www.boomerangsworld.de/cms/worker/news.html
+    Download date: 2024_10_14
+
+    ./worker-5.1.0.tar.gz.asc
+    http://www.boomerangsworld.de/cms/worker/downloads/worker-5.1.0.tar.gz.asc
+    http://www.boomerangsworld.de/cms/worker/download.html
+    http://www.boomerangsworld.de/cms/worker/news.html
+    Download date: 2024_10_14
+
+
