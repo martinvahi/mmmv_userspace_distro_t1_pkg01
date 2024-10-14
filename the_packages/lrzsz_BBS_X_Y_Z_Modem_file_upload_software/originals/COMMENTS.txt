@@ -1,0 +1,16 @@
+
+File origins:
+
+    ./zmodem.txt
+    http://gallium.inria.fr/~doligez/zmodem/zmodem.txt
+    Allalaadimise kuupäev: 2024_10_14
+
+    ./lrzsz-0.12.20.tar.gz
+    https://ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz
+    https://ohse.de/uwe/software/lrzsz.html
+    Allalaadimise kuupäev: 2024_10_14
+
+    ./ymodem.txt
+    http://cambium.inria.fr/~doligez/zmodem/ymodem.txt
+    Allalaadimise kuupäev: 2024_10_14
+
