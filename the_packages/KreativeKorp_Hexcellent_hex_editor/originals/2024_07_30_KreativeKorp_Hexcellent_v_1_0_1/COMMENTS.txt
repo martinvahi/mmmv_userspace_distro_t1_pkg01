@@ -1,0 +1,22 @@
+
+The 
+
+    ./v1.0.1.tar.gz
+
+has been downloaded on 2024_12_22 from
+
+    https://github.com/kreativekorp/hexcellent/archive/refs/tags/v1.0.1.tar.gz
+
+The 
+
+    ./KreativeKorp_Hexcellent_v_1_0_1.tar.gz
+
+has been created by compiling the code at the 
+
+    ./v1.0.1.tar.gz
+
+with Java8. Upstream home page:
+
+    https://www.kreativekorp.com/software/
+
+
