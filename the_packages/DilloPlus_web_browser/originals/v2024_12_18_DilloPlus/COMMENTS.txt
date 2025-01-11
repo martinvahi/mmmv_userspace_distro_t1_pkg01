@@ -1,5 +1,38 @@
 
-Home page:
+Dillo+ home page:
 
     https://github.com/crossbowerbt/dillo-plus.git
+
+File origins:
+
+    ./template_of_home_username_dot_dillo_dillorc
+    https://dillo-browser.github.io/old/dillorc
+    Download date: 2025_01_11.
+
+    ./template_of_home_username_dot_dillo-plus_dillorc
+    https://raw.githubusercontent.com/crossbowerbt/dillo-plus/refs/heads/main/dillorc
+    Download date: 2025_01_11.
+
+As of 2025_01 the 
+
+    ./template_of_home_username_dot_dillo_dillorc
+
+is expected to have a path of 
+
+    $HOME/.dillo/dillorc
+
+and the 
+
+    ./template_of_home_username_dot_dillo-plus_dillorc
+
+is expected to have a path of 
+
+    $HOME/.dillo-plus/dillorc
+
+except that the 
+
+    $HOME/.dillo-plus/dillorc
+
+does NOT need to be manually created, because it gets
+crated automatically during Dillo+ installation.
 
