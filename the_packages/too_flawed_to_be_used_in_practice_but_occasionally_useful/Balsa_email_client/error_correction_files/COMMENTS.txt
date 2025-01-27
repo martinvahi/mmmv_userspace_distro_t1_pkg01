@@ -1,0 +1,13 @@
+
+The 
+
+    ./Balsa_email_client.zip.rd
+
+is redupe outpt. redupe upstream source:
+
+    git clone --recursive https://github.com/rescrv/redupe.git
+
+redupe upstream author's, Robert Escriva's, home page as of 2025_01:
+
+    https://rescrv.net/
+
