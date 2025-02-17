@@ -5,3 +5,7 @@ Related home page:
     https://github.com/neomutt/neomutt.git
     https://github.com/neomutt/neomutt/tree/20250113
 
+Creation of NeoMutt configuration file:
+
+    cp home_username_dot_neomuttrc.template.txt $HOME/.neomuttrc
+

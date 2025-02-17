@@ -1,0 +1,136 @@
+
+# Initial author of this file: Martin.Vahi@softf1.com
+# This file is in public domain.
+# The following line is a spdx.org license label line:
+# SPDX-License-Identifier: 0BSD
+#
+# References:
+#     https://github.com/neomutt/samples/blob/main/config/neomuttrc-example
+#     https://gideonwolfe.com/posts/workflow/neomutt/intro/
+#     https://aliquote.org/post/neomutt/
+#
+# Some useful, but not that obviously documented, keyboard commands
+# while residing at Inbox view:
+#
+#     c  -- "change mailbox"
+#
+#     o           -- open sort menu for sorting in non-reverse order
+#     O (big "o") -- open sort menu for sorting in reverse order
+#     Home        -- move cursor to the top of the list
+#     1 ENTER     -- move cursor to the top of the list
+#     End         -- move cursor to the end of the list
+#
+
+# Sender name and email address:
+set realname = "Martin Vahi"
+set from     = "martin.vahi@softf1.com"
+
+# Set IMAP server parameters
+set imap_user = "martin.vahi@softf1.com"
+set imap_pass = "password_comes_here_Fooo"
+
+# Enable SSL/TLS
+set ssl_starttls = yes
+
+# Enable IMAP idle
+set imap_idle = yes
+
+# Set IMAP server URL
+set spoolfile = "imaps://imap.zone.eu/INBOX"
+set folder = $spoolfile
+
+# "record" describes the sent mail folder. An exact name
+# of the folder at IMAP server MIGHT be found by using the
+# email program named "balsa", which itself might be flawed,
+# unusable, but it still MIGHT display the sent folder name
+# at IMAP server.  One 3rd party repackaging of the flawed
+# "balsa":
+#
+#     https://codeberg.org/martinvahi/mmmv_userspace_distro_t1_pkg01/src/branch/main/the_packages/too_flawed_to_be_used_in_practice_but_occasionally_useful/Balsa_email_client/Balsa_email_client.zip
+#
+#set record = "+INBOX/Sent" # IMAP server folder INBOX sub-folder named "Sent"
+set record = 'imaps://imap.zone.eu/Sent Mail' 
+
+# For some weird reason the "mailboxes" that can be listed with
+# a keyboard command "c", without the quotation marks, have to
+# be explicitly declared.
+mailboxes 'imaps://imap.zone.eu/Sent Mail'
+mailboxes "imaps://imap.zone.eu/arhiiv_ajutine"
+mailboxes "imaps://imap.zone.eu/Trash"
+mailboxes "imaps://imap.zone.eu/Drafts"
+mailboxes "imaps://imap.zone.eu/m2rkmed_ja_viited"
+# mailboxes $postponed $record $trash # is another way to declare mailboxes
+
+set smtp_url = "smtps://martin.vahi@softf1.com@smtp.zone.eu"
+set smtp_pass = "password_comes_here_Bar"
+
+# Set local mail storage folder (optional)
+set mbox_type = "Maildir"
+#set maildir = "/home/ruusu/m_local/var/NeoMutt_epostikataloog/postikataloog"
+
+# The drafts folder.
+set postponed = "imaps://imap.zone.eu/Drafts"
+
+
+set trash = "imaps://imap.zone.eu/Trash"
+
+
+# Temporary working folder. Preferably at some RAM partition.
+set tmpdir = "/opt/andmekettad/RAM_30MiB"
+
+# A text file that is copied to the end of the outgoing email text. 
+set signature ="/home/ruusu/.signature"
+
+
+# Set polling interval for new mail (in seconds)
+set mail_check = 60
+
+# Set timeout value (in seconds)
+set timeout = 30
+
+#set date_format = "%d.%m.%Y %H:%M"
+set date_format = "%Y_%m_%d %H:%M"
+
+# Inbox display format settings:
+set sort = threads
+set sort_aux = reverse-last-date-received
+
+
+# Address book in NeoMutt is part of the NeoMutt configuration
+# file, the file that You are currently reading this sentence
+# from, but the configuration file can have parts of it at
+# other files that are included here by a clause like
+source /full/path/to/the/text/file/that/is/part/of/the/NeoMutt/configurations/file.txt
+#source /home/ruusu/m_local/var/NeoMutt_epostikataloog/neomutt_formaadis_aadressiraamat.txt
+# 
+# Addresses at the address book are described like that:
+alias FunPerson      Foo Alien <ufo@outerspace.com>
+alias AstronomerGoo  Albert Coppernicus <einstein.hidingfrom@witchhunt.com>
+alias SuperVillain Gold Finger <gold.finger@bond007.com>
+# and it is possible to define address groups 
+# by using a list of aliases:
+alias PartyAnimals  SuperVillain,AstronomerGoo,FunPerson
+
+
+# The file 
+set mailcap_path = ~/.config/neomutt/mailcap
+# is used for determining, what programs NeoMutt uses for
+# displaying various email attachments like PDF-files, images,
+# mail body that is in HTML, etc. The following example
+# of the mailcap file can be extracted to a separate
+# file by executing a Bash line:
+#
+#     cat ./this_NeoMutt_configuration_file.txt | grep -E '^[#]mailgap_example[|]' | sed -e 's/^[#]mailgap_example[|]//g' 
+#
+#mailgap_example|application/pdf; /usr/bin/zathura %s pdf
+#mailgap_example|# application/pdf; /usr/bin/evince %s pdf
+#mailgap_example|image/png; /usr/bin/viewnior %s
+#mailgap_example|image/jpeg; /usr/bin/viewnior %s
+#mailgap_example|
+#mailgap_example|
+#mailgap_example|#text/html; w3m -I %{charset} -T text/html; copiousoutput;
+#mailgap_example|text/html; /home/mmmv/applications/DilloPlus_web_browser/v2024_12_18_DilloPlus/bin/dillo-plus  %s
+#mailgap_example|
+#mailgap_example|text/plain; /home/mmmv/applications/Vim/2024_06_22_cloned_v_9_1_512/bin/vim %s
+#mailgap_example|text/csv;   /home/mmmv/applications/Vim/2024_06_22_cloned_v_9_1_512/bin/vim %s
+
