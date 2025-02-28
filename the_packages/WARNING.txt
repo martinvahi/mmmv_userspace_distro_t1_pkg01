@@ -1,0 +1,11 @@
+===========================================================================
+                                 WARNING
+===========================================================================
+
+The upstream source code at this folder HAS _NOT_ BEEN AUDITED by
+me(Martin.Vahi@softf1.com), nor do I exactly know, what its build-time
+or run-time dependencies are. It is all on a best effort bases. 
+
+===========================================================================
+S_VERSION_OF_THIS_FILE="2c6213ab-7bb3-4ed5-a5fd-d27260c129e7"
+===========================================================================
