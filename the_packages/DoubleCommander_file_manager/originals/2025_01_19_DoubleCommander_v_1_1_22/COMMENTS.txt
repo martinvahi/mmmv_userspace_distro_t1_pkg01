@@ -1,0 +1,17 @@
+
+The 
+
+    ./DoubleCommander_v_1_1_22_src.zip
+
+has been obtained by downloading "doublecmd-1.1.22-src.tar.gz" 
+on 2025_03_03 from 
+
+    https://sourceforge.net/projects/doublecmd/files/Double%20Commander%20Source/doublecmd-1.1.22-src.tar.gz/download
+
+and then unpacking it, renaming the folder and repacking it.
+
+The following line might be practical for copy-pasting:
+
+    apt-get install libqt5pas-dev libdbus-1-dev libglib2.0-dev libx11-dev libgtk2.0-dev qt5-qmake qt5-* qtbase5-dev libqt5x11extras5-dev
+
+
