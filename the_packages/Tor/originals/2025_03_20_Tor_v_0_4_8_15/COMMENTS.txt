@@ -1,0 +1,15 @@
+
+File origins:
+
+    ./tor-0.4.8.15.zip is an unpacked and repacked version of 
+    https://dist.torproject.org/tor-0.4.8.15.tar.gz
+    Download date: 2025_03_23
+
+The 
+
+    ./tor-0.4.8.15.zip
+
+has been obtained by unpacking and repacking the 
+
+    https://dist.torproject.org/tor-0.4.8.15.tar.gz
+
