@@ -1,0 +1,13 @@
+
+The 
+
+    ./2024_08_16_sc-im_v_0_8_4.zip
+
+has been obtained by downloading 
+
+    https://github.com/andmarti1424/sc-im/archive/refs/tags/v0.8.4.tar.gz
+    https://github.com/andmarti1424/sc-im/releases/tag/v0.8.4
+
+and unpacking it, renaming the folder and repacking the folder.
+
+
