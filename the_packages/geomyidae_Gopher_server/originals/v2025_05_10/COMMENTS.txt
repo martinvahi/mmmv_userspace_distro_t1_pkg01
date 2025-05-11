@@ -1,0 +1,14 @@
+
+The 
+
+    ./2025_05_10_cloned_geomidae.zip
+
+has been obtained by cloning and repacking the 
+
+    git://r-36.net/geomyidae
+
+On Debian Linux the following Bash line MIGHT allow the root user to
+install some of its dependencies:
+
+    apt-get install libtls-dev libtlsh-dev libtls25 libtlsh0
+
