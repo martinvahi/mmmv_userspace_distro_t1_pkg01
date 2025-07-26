@@ -1,0 +1,11 @@
+
+The 
+
+    ./graphviz-13.1.0.zip
+
+has been obtained by downloading and repacking the
+
+    https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/13.1.0/graphviz-13.1.0.tar.gz
+
+on 2025_07_26.
+
