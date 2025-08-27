@@ -9,3 +9,7 @@ has been obtained by downloading and repacking the
 
 on 2025_07_26.
 
+Some 2025 era Debian packages that MIGHT be needed to compile the Graphviz:
+
+    libsodium-dev libargon2-dev libargon2-0-dev libargon2-0 libsodium-dev  libsodium23 
+
