@@ -35,4 +35,9 @@ except that the
 
 does NOT need to be manually created, because it gets
 crated automatically during Dillo+ installation.
+On year 2025 era Debian Linux the installation of
+the following packages MIGHT be required:
+
+    libfltk-dev libfltk-gl1.3 libfltk1.3-dev
+
 
