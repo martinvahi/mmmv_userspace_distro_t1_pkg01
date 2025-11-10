@@ -49,7 +49,7 @@ set folder = $spoolfile
 #     https://codeberg.org/martinvahi/mmmv_userspace_distro_t1_pkg01/src/branch/main/the_packages/too_flawed_to_be_used_in_practice_but_occasionally_useful/Balsa_email_client/Balsa_email_client.zip
 #
 #set record = "+INBOX/Sent" # IMAP server folder INBOX sub-folder named "Sent"
-set record = 'imaps://imap.zone.eu/Sent Mail' 
+set record = 'imaps://imap.zone.eu/Sent Mail'
 
 # For some weird reason the "mailboxes" that can be listed with
 # a keyboard command "c", without the quotation marks, have to
@@ -78,7 +78,7 @@ set trash = "imaps://imap.zone.eu/Trash"
 # Temporary working folder. Preferably at some RAM partition.
 set tmpdir = "/opt/andmekettad/RAM_30MiB"
 
-# A text file that is copied to the end of the outgoing email text. 
+# A text file that is copied to the end of the outgoing email text.
 set signature ="/home/ruusu/.signature"
 
 
@@ -102,17 +102,27 @@ set sort_aux = reverse-last-date-received
 # other files that are included here by a clause like
 source /full/path/to/the/text/file/that/is/part/of/the/NeoMutt/configurations/file.txt
 #source /home/ruusu/m_local/var/NeoMutt_epostikataloog/neomutt_formaadis_aadressiraamat.txt
-# 
+#
 # Addresses at the address book are described like that:
 alias FunPerson      Foo Alien <ufo@outerspace.com>
 alias AstronomerGoo  Albert Coppernicus <einstein.hidingfrom@witchhunt.com>
 alias SuperVillain Gold Finger <gold.finger@bond007.com>
-# and it is possible to define address groups 
+# and it is possible to define address groups
 # by using a list of aliases:
 alias PartyAnimals  SuperVillain,AstronomerGoo,FunPerson
 
+#----start--of--artistic--settings----
+# https://neomutt.org/guide/configuration.html#color-style
+# Supported color names for the foreground and background:
+#
+#     black, blue, cyan, default, green, magenta, red, white, yellow
+#
+color index_author cyan  default 'Gold Finger*'
+color index_author white magenta 'Albert Coppernicus*'
+color index_author white yellow  'Foo Alien*
+#----end---of--artistic--settings----
 
-# The file 
+# The file
 set mailcap_path = ~/.config/neomutt/mailcap
 # is used for determining, what programs NeoMutt uses for
 # displaying various email attachments like PDF-files, images,
@@ -120,7 +130,7 @@ set mailcap_path = ~/.config/neomutt/mailcap
 # of the mailcap file can be extracted to a separate
 # file by executing a Bash line:
 #
-#     cat ./this_NeoMutt_configuration_file.txt | grep -E '^[#]mailgap_example[|]' | sed -e 's/^[#]mailgap_example[|]//g' 
+#     cat ./this_NeoMutt_configuration_file.txt | grep -E '^[#]mailgap_example[|]' | sed -e 's/^[#]mailgap_example[|]//g'
 #
 #mailgap_example|application/pdf; /usr/bin/zathura %s pdf
 #mailgap_example|# application/pdf; /usr/bin/evince %s pdf
@@ -133,4 +143,18 @@ set mailcap_path = ~/.config/neomutt/mailcap
 #mailgap_example|
 #mailgap_example|text/plain; /home/mmmv/applications/Vim/2024_06_22_cloned_v_9_1_512/bin/vim %s
 #mailgap_example|text/csv;   /home/mmmv/applications/Vim/2024_06_22_cloned_v_9_1_512/bin/vim %s
+
+#---start--of--copypasted--text--from--Q4OS--/etc/neumuttrc--file----
+# System-wide CA file managed by the ca-certificates package
+set ssl_ca_certificates_file="/etc/ssl/certs/ca-certificates.crt"
+
+# Use mime.types to look up handlers for application/octet-stream. Can
+# be undone with unmime_lookup.
+mime_lookup application/octet-stream
+
+# Upgrade the progress counter every 250ms, good for mutt over SSH
+# see http://bugs.debian.org/537746
+set time_inc=250
+#---end---of--copypasted--text--from--Q4OS--/etc/neumuttrc--file----
+
 
