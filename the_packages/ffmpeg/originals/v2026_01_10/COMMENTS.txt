@@ -1,0 +1,15 @@
+
+The
+
+    ./ffmpeg_v_2026_01_10.zip
+
+has been obtained by cloning
+
+    git clone --recursive https://git.ffmpeg.org/ffmpeg.git ffmpeg
+
+and renaming
+
+    mv ./ffmpeg ./ffmpeg_v_2026_01_10
+
+and comprssing (with zip).
+
