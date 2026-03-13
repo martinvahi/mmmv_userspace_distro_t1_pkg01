@@ -1,0 +1,14 @@
+
+The unpacked slightly differently named version of the 
+
+    ./v2025_12_15_scdoc.zip
+
+was obtained by deleting .git and .gitignore
+form a folder that was created by executing
+
+    git clone --recursive https://git.sr.ht/~sircmpwn/scdoc
+
+on 2026_02_03. Related URLs:
+
+    https://sr.ht/~sircmpwn/scdoc/
+

@@ -1,0 +1,19 @@
+
+-----------------------------------------------------------
+WARNING: 
+    This version of QBE can target only amd64 (linux
+    and osx), arm64, and riscv64. In another words,
+    NO i686 support and NO support for Raspberry_Pi
+    models that have a 32bit ARM CPU.
+-----------------------------------------------------------
+The 
+
+    ./QBE_compiler_backend_v_1_2.zip
+
+has been created by downloading and repacking 
+
+    https://c9x.me/compile/release/qbe-1.2.tar.xz
+
+on 2026_02_02.
+-----------------------------------------------------------
+
