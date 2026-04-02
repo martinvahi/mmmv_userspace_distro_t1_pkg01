@@ -3882,6 +3882,40 @@ func_display_help_message(){
 
 #--------------------------------------------------------------------------
 
+func_initialise_MMMV_USERSPACE_DISTRO_T1_SI_N_OF_COMPILATION_THREADS_T1_if_possible_and_not_inited(){
+    if [ "$MMMV_USERSPACE_DISTRO_T1_SI_N_OF_COMPILATION_THREADS_T1" == "" ]; then
+        if [ "$SB_BC_EXISTS_ON_PATH" == "" ]; then
+            SB_BC_EXISTS_ON_PATH="f"
+            if [ "`which bc 2> /dev/null`" != "" ]; then
+                SB_BC_EXISTS_ON_PATH="t"
+            fi
+        fi
+        if [ "$SB_TR_EXISTS_ON_PATH" == "" ]; then
+            SB_TR_EXISTS_ON_PATH="f"
+            if [ "`which tr 2> /dev/null`" != "" ]; then
+                SB_TR_EXISTS_ON_PATH="t"
+            fi
+        fi
+        if [ "$SB_BC_EXISTS_ON_PATH" == "t" ]; then
+            if [ "$SB_TR_EXISTS_ON_PATH" == "t" ]; then
+                if [ "`which mmmv_hardwarethreadcount_t1 2> /dev/null`" != "" ]; then
+                    S_TMP_0="`mmmv_hardwarethreadcount_t1 `"
+                    #------------------------------------------------------
+                    # The line:
+                    #     echo " 4-1 " | bc | tr -d '\n'
+                    # works on both, FreeBSD and Linux.
+                    #------------------------------------------------------
+                    S_TMP_1="`echo \" $S_TMP_0-1 \" | bc | tr -d '\\n' `"
+                    MMMV_USERSPACE_DISTRO_T1_SI_N_OF_COMPILATION_THREADS_T1="$S_TMP_1"
+                fi
+                #----------------------------------------------------------
+            fi
+        fi
+    fi
+} # func_initialise_MMMV_USERSPACE_DISTRO_T1_SI_N_OF_COMPILATION_THREADS_T1_if_possible_and_not_inited
+
+#--------------------------------------------------------------------------
+
 S_CMD_GNU_AWK="awk"
 S_CMD_GNU_MAKE="make"
 S_CMD_GNU_SED="sed"
@@ -3986,10 +4020,24 @@ func_display_help_message_and_exit_if_needed(){
 
 #--------------------------------------------------------------------------
 
+func_initialize_CFLAGS_and_CXXFLAGS_if_not_inited(){
+    local S_DEFAULT_VALUE=" -march=native -mtune=native -ftree-vectorize -O3 "
+    if [ "$CFLAGS" == "" ]; then
+        export CFLAGS="$S_DEFAULT_VALUE"
+    fi
+    if [ "$CXXFLAGS" == "" ]; then
+        export CXXFLAGS="$S_DEFAULT_VALUE"
+    fi
+} # func_initialize_CFLAGS_and_CXXFLAGS_if_not_inited
+
+#--------------------------------------------------------------------------
+
 func_initialize_configuration_by_initializing_global_variables(){
     #func_first_use_message # Please outcomment this line during the customisation.
     #----------------------------------------------------------------------
     func_mmmv_init_s_timestamp_if_not_inited_t1
+    func_initialize_CFLAGS_and_CXXFLAGS_if_not_inited
+    func_initialise_MMMV_USERSPACE_DISTRO_T1_SI_N_OF_COMPILATION_THREADS_T1_if_possible_and_not_inited
     #----------------------------------------------------------------------
     S_FP_FOLDER_OF_BUILD_FOLDERS="$S_FP_DIR/temporary_build_folder"
     S_FP_BUILD_FOLDER="$S_FP_FOLDER_OF_BUILD_FOLDERS/tmp_$S_TIMESTAMP"
