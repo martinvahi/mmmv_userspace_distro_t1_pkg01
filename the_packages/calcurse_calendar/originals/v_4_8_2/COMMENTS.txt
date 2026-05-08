@@ -1,0 +1,11 @@
+
+The 
+
+    ./calcurse_v_4_8_2.zip
+
+has been obtained by downloading and repacking 
+
+    https://www.calcurse.org/files/calcurse-4.8.2.tar.gz
+
+on 2026_04_16. 
+
