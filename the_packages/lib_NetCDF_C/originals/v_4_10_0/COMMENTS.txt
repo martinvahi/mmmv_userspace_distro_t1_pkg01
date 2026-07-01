@@ -1,0 +1,12 @@
+
+The BSD-licensed  
+
+    ./NetCDF_C_v_4_10_0.zip
+
+has been obtained by downloading and repacking 
+
+    https://downloads.unidata.ucar.edu/netcdf-c/4.10.0/netcdf-c-4.10.0.tar.gz
+    https://downloads.unidata.ucar.edu/netcdf-c/
+
+on 2026_03_10.
+
