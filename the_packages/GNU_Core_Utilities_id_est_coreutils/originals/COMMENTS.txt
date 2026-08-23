@@ -1,0 +1,13 @@
+
+GNU Core Utilities depend on Linux kernel and therefore the version of
+GNU Core Utilities that can be compiled/built depends on the version
+of Linux kernel that runs the build computer. As the only reason for
+recompiling GNU Core Utilities is to be able to use CPU specific
+binaries, it is highly recommended to compile/build the same version of
+GNU Core Utilities that got installed by default as part of operating
+system distribution.  As of 2026_08_09 the home page of GNU Core Utilities is:
+
+    https://www.gnu.org/software/coreutils/
+    https://ftp.gnu.org/gnu/coreutils/
+
+

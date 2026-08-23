@@ -1,0 +1,16 @@
+
+The
+
+    GNU_Core_Utilities_v_9_1.zip
+
+has been obtained by downoading and recompressing
+
+    https://ftp.gnu.org/gnu/coreutils/coreutils-9.1.tar.gz
+
+on 2026_08_11
+
+
+Bash line for displaying the version of GNU Core Utilities:
+
+    ls --version | head -n 1
+
