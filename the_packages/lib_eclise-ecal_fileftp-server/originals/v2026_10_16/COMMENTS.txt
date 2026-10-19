@@ -1,0 +1,5 @@
+
+Cloned on 2026_10_16 with a command
+
+    git clone --recursive https://github.com/eclipse-ecal/fineftp-server.git
+

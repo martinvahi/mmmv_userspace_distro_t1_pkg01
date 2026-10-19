@@ -1,0 +1,11 @@
+
+The
+
+    ./RFC959_FTP_File_Transfer_Protocol.txt
+
+has been obtained by downloading
+
+    https://www.rfc-editor.org/rfc/rfc959.txt
+
+on 2026_10_18.
+
