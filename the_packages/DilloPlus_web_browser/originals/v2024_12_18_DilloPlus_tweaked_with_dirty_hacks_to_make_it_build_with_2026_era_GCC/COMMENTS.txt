@@ -1,0 +1,51 @@
+
+Dillo+ home page:
+
+    https://github.com/crossbowerbt/dillo-plus.git
+
+File origins:
+
+    ./template_of_home_username_dot_dillo_dillorc
+    https://dillo-browser.github.io/old/dillorc
+    Download date: 2025_01_11.
+
+    ./template_of_home_username_dot_dillo-plus_dillorc
+    https://raw.githubusercontent.com/crossbowerbt/dillo-plus/refs/heads/main/dillorc
+    Download date: 2025_01_11.
+
+As of 2025_01 the
+
+    ./template_of_home_username_dot_dillo_dillorc
+
+is expected to have a path of
+
+    $HOME/.dillo/dillorc
+
+and the
+
+    ./template_of_home_username_dot_dillo-plus_dillorc
+
+is expected to have a path of
+
+    $HOME/.dillo-plus/dillorc
+
+except that the
+
+    $HOME/.dillo-plus/dillorc
+
+does NOT need to be manually created, because it gets
+crated automatically during Dillo+ installation.
+On year 2025 era Debian Linux the installation of
+the following packages MIGHT be required:
+
+    libfltk-dev libfltk-gl1.3 libfltk1.3-dev
+
+The
+
+    ./v2024_12_18_DilloPlus_src_Monty_Python_Architects_at_work.zip
+
+includes dirty hacks by Martin.Vahi@softf1.com.
+The dirty hacks are enclosed between singleliner comments
+    //---Monty--Python--Architects--at--work--start---
+    //---Monty--Python--Architects--at--work--end-----
+
