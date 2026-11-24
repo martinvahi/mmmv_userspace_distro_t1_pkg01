@@ -1,0 +1,17 @@
+
+It MIGHT be so that the
+
+    ./Geany_v_2_1_0
+
+can be built with GCC versions 12.2.0 and 14.2.0 on ("uname -a")
+
+    Linux terminal01 6.1.0-51-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.177-1 (2026-07-16) x86_64 GNU/Linux
+
+    Linux failiserver01 6.12.117+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.117-1 (2026-11-12) x86_64 GNU/Linux
+
+but the
+
+    ./Geany_v_2_0
+
+can be built with GCC versions 12.2.0 but can NOT be built with GCC version 14.2.0.
+
